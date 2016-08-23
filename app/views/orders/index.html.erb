@@ -1,0 +1,20 @@
+<h3>ALL THE ORDERS</h3>
+<p>
+  <% @orders.each do |o| %>
+    <p>
+      Placed at <%= o.created_at %>
+    </p>
+    <div>
+      <p> Men's bikes: <%= o.mens_bikes %> </p>
+      <p> Women's bikes: <%= o.womens_bikes %> </p>
+      <p> Kids' bikes: <%= o.kids_bikes %> </p>
+      <!-- TODO calculate total # of bikes here   -->
+      <p>Total bikes: TK</p>
+    </div>
+    <p> <%= o.notes %> </p>
+    <div>
+      <p>Invitation sent? <%= o.invitation_sent %></p>
+      <p>Confirmed? <%= o.confirmed %></p>
+    </div>
+  <% end %>
+</p>
