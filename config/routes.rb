@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   resources :orders
   resources :donations
 
-  root 'welcome#index'
+  root to: 'welcome#index'
+  get "*path" => redirect("/")
 end
