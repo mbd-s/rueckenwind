@@ -11,6 +11,7 @@ class CustomersController < ApplicationController
   def create
     @customer = Customer.new(customer_params)
     if @customer.save
+      session[:current_customer_id] = @customer.id
       redirect_to new_order_path
     else
     flash[:error] = @customer.errors.full_messages.to_sentence

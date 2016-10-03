@@ -9,11 +9,13 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.create(order_params)
+    @order = Order.new(order_params)
+    @order.customer_id = session[:current_customer_id]
     if @order.save
+      flash[:success] = "Order successfully saved."
       redirect_to root_path
     else
-      flash[:error] = @orders.errors.full_messages.to_sentence
+      flash[:error] = @order.errors.full_messages.to_sentence
       render :new
       end
   end
@@ -21,7 +23,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:mens_bikes, :womens_bikes, :kids_bikes, :notes, :invitation_sent, :confirmed)
+    params.require(:order).permit(:mens_bikes, :womens_bikes, :kids_bikes, :notes, :invitation_sent, :confirmed, :customer_id)
   end
 
 end
