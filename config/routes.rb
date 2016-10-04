@@ -6,5 +6,8 @@ Rails.application.routes.draw do
   resources :donations
 
   root to: 'welcome#index'
+
+  get "/pages/:page" => "pages#show"
+  
   get "*path" => redirect("/")
 end
