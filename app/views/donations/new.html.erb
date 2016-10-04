@@ -1,29 +1,29 @@
-<h4>New donation</h4>
-
-<%= form_for :donor do |f| %>
-  <p>
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
-  </p>
-  <p>
-    <%= f.label :email %>
-    <%= f.email_field :email %>
-    <%= f.label :email %>
-    <%= f.email_field :email %>
-    <%= f.label :phone %>
-    <%= f.telephone_field :phone %>
-  </p>
-  <p>
-    <%= f.label :bikes %>
-    <%= f.text_field :bikes %>
-    <%= check_box_tag(:parts) %>
-    <%= label_tag(:parts, "I am donating bike parts.") %>
-  </p>
-  <%= f.label :notes %>
-  <%= f.text_area :notes %>
-  <p>
-   <%= f.submit %>
- </p>
-<% end %>
+<div class="container">
+  <%= form_for :donor do |f| %>
+    <p>
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %>
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+    </p>
+    <p>
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+      <%= f.label :phone %>
+      <%= f.telephone_field :phone %>
+    </p>
+    <p>
+      <%= f.label :bikes %>
+      <%= f.text_field :bikes %>
+      <%= check_box_tag(:parts) %>
+      <%= label_tag(:parts, "I have bike parts to donate.") %>
+    </p>
+    <%= f.label :notes %>
+    <%= f.text_area :notes %>
+    <p>
+     <%= f.submit "Save" %>
+   </p>
+  <% end %>
+</div>

@@ -1,16 +1,17 @@
-<h4>New order</h4>
-<%= form_for @order do |f| %>
-  <p>
-    <%= f.label :mens_bikes %>
-    <%= f.number_field :mens_bikes %>
-    <%= f.label :womens_bikes %>
-    <%= f.number_field :womens_bikes %>
-    <%= f.label :kids_bikes %>
-    <%= f.number_field :kids_bikes %>
-  </p>
-  <%= f.label :notes %>
-  <%= f.text_area :notes %>
-  <div class="submit_button">
-    <%= f.submit "Submit order"%>
-  </div>
-<% end %>
+<div class="container">
+  <%= form_for @order do |f| %>
+    <p>
+      <%= f.label :mens_bikes %>
+      <%= f.number_field :mens_bikes %>
+      <%= f.label :womens_bikes %>
+      <%= f.number_field :womens_bikes %>
+      <%= f.label :kids_bikes %>
+      <%= f.number_field :kids_bikes %>
+    </p>
+    <%= f.label :notes %>
+    <%= f.text_area :notes %>
+    <div class="submit_button">
+      <%= f.submit "Submit order"%>
+    </div>
+  <% end %>
+</div>
