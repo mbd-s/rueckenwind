@@ -2,11 +2,11 @@
   <%= form_for @order do |f| %>
     <p>
       <%= f.label :mens_bikes %>
-      <%= f.number_field :mens_bikes %>
+      <%= f.number_field :mens_bikes, min: 0 %>
       <%= f.label :womens_bikes %>
-      <%= f.number_field :womens_bikes %>
+      <%= f.number_field :womens_bikes, min: 0 %>
       <%= f.label :kids_bikes %>
-      <%= f.number_field :kids_bikes %>
+      <%= f.number_field :kids_bikes, min: 0 %>
     </p>
     <%= f.label :notes %>
     <%= f.text_area :notes %>
