@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.customer_id = session[:current_customer_id]
     if @order.save
-      flash[:success] = "Order successfully saved."
+      flash[:success] = "Thank you! Check your email for confirmation of your order."
       redirect_to root_path
     else
       flash[:error] = @order.errors.full_messages.to_sentence

@@ -1,10 +1,25 @@
-<h2>Welcome to Rückenwind</h2>
-<p>
-  We fix used bikes and give them to refugees.
-</p>
-
-<strong>I'd like to...</strong>
-
-<div><%=link_to "get a bike.", new_customer_path %></div>
-<div>donate a bike.</div>
-<div>help build a bike.</div>
+<div class="container">
+  <div class="row">
+    <p>We fix used bikes and give them to refugees.</p>
+  </div>
+  <div class="row">
+    <strong>I'd like to...</strong>
+  </div>
+  <div class="row">
+    <div class="col l4">
+      <div class="card-panel grey lighten-4">
+        <p><%=link_to "Get a bike.", new_customer_path %></p>
+      </div>
+    </div>
+    <div class="col l4">
+      <div class="card-panel grey lighten-4">
+        <p>Donate a bike.</p>
+      </div>
+    </div>
+    <div class="col l4">
+      <div class="card-panel grey lighten-4">
+        <p>Help someone build a bike.</p>
+      </div>
+    </div>
+  </div>
+</div>
