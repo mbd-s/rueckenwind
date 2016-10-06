@@ -1,2 +1,25 @@
-<h3>Sign up to be a volunteers</h3>
-<%# TODO write volunteers form %>
+<div class="container">
+  <div class ="row">
+    <%= form_for @volunteer do |v| %>
+      <div class="input-field col s6">
+        <%= v.label :first_name %>
+        <%= v.text_field :first_name %>
+      </div>
+      <div class="input-field col s6">
+        <%= v.label :last_name %>
+        <%= v.text_field :last_name %>
+      </div>
+      <div class="input-field col s6">
+        <%= v.label :email %>
+        <%= v.email_field :email %>
+      </div>
+      <div class="input-field col s6">
+        <%= v.label :email %>
+        <%= v.email_field :email %>
+      </div>
+      <div class="submit_button">
+        <%= v.submit "Save"%>
+      </div>
+    <% end %>
+  </div>
+</div>
