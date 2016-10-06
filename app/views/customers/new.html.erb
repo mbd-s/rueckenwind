@@ -1,23 +1,33 @@
 <div class="container">
-  <%= form_for @customer do |f| %>
-    <p>
-      <%= f.label :first_name %>
-      <%= f.text_field :first_name %>
-      <%= f.label :last_name %>
-      <%= f.text_field :last_name %>
-    </p>
-    <p>
-      <%= f.label :email %>
-      <%= f.email_field :email %>
-      <%= f.label :email_confirmation %>
-      <%= f.email_field :email_confirmation %>
-      <%= f.label :phone %>
-      <%= f.telephone_field :phone %>
-      <%= f.label :facebook %>
-      <%= f.url_field :facebook %>
-    </p>
-    <div class="submit_button">
-      <%= f.submit "Save"%>
-    </div>
-  <% end %>
+  <div class ="row">
+    <%= form_for @customer do |f| %>
+      <div class="input-field col s6">
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name %>
+      </div>
+      <div class="input-field col s6">
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name %>
+      </div>
+      <div class="input-field col s6">
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+      </div>
+      <div class="input-field col s6">
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+      </div>
+      <div class="input-field col s6">
+        <%= f.label :phone %>
+        <%= f.telephone_field :phone %>
+      </div>
+      <div class="input-field col s6">
+        <%= f.label :facebook %>
+        <%= f.url_field :facebook %>
+      </div>
+      <div class="submit_button">
+        <%= f.submit "Save"%>
+      </div>
+    <% end %>
+  </div>
 </div>
