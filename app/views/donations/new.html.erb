@@ -1,29 +1,39 @@
 <div class="container">
-  <%= form_for :donor do |f| %>
-    <p>
-      <%= f.label :first_name %>
-      <%= f.text_field :first_name %>
-      <%= f.label :last_name %>
-      <%= f.text_field :last_name %>
-    </p>
-    <p>
-      <%= f.label :email %>
-      <%= f.email_field :email %>
-      <%= f.label :email %>
-      <%= f.email_field :email %>
-      <%= f.label :phone %>
-      <%= f.telephone_field :phone %>
-    </p>
-    <p>
-      <%= f.label :bikes %>
-      <%= f.text_field :bikes %>
-      <%= check_box_tag(:parts) %>
-      <%= label_tag(:parts, "I have bike parts to donate.") %>
-    </p>
-    <%= f.label :notes %>
-    <%= f.text_area :notes %>
-    <p>
-     <%= f.submit "Save" %>
-   </p>
-  <% end %>
+  <div class="row">
+    <%= form_for :donor do |f| %>
+      <div class="input-field col s6">
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name %>
+      </div>
+      <div class="input-field col s6">
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name %>
+      </div>
+      <div class="input-field col s6">
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+      </div>
+      <div class="input-field col s6">
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+      </div>
+      <div class="input-field col s6">
+        <%= f.label :phone %>
+        <%= f.telephone_field :phone %>
+      </div>
+      <div class="input-field col s6">
+        <%= f.label :bikes %>
+        <%= f.text_field :bikes %>
+      </div>
+      <div class="input-field col s6">
+        <%= check_box_tag(:parts) %>
+        <%= label_tag(:parts, "I have bike parts to donate.") %>
+      </div>
+      <div class="input-field col s6">
+        <%= f.label :notes %>
+        <%= f.text_area :notes %>
+      </div>
+       <%= f.submit "Save" %>
+    <% end %>
+  </div>
 </div>

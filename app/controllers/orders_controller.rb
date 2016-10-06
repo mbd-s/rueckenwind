@@ -17,7 +17,11 @@ class OrdersController < ApplicationController
     else
       flash[:error] = @order.errors.full_messages.to_sentence
       render :new
-      end
+    end
+  end
+
+  def show
+    render :show
   end
 
   private

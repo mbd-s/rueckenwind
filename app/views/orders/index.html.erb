@@ -1,22 +1,25 @@
 <div class="container">
-  <h4>Orders</h4>
-  <p>
-    <% @orders.each do |o| %>
-      <p>
-        Placed at <%= o.created_at %>
-      </p>
-      <div>
-        <p> Men&rsquo;s bikes: <%= o.mens_bikes %> </p>
-        <p> Women&rsquo;s bikes: <%= o.womens_bikes %> </p>
-        <p> Kids&rsquo; bikes: <%= o.kids_bikes %> </p>
-        <!-- TODO calculate total # of bikes here   -->
-        <p>Total bikes: TK</p>
-      </div>
-      <p> <%= o.notes %> </p>
-      <div>
-        <p>Invitation sent? <%= o.invitation_sent %></p>
-        <p>Confirmed? <%= o.confirmed %></p>
-      </div>
-    <% end %>
-  </p>
+  <div class="row">
+    <p>
+      <% @orders.each do |o| %>
+        <div class="card-panel grey lighten-4">
+          <p>
+            Order placed at <%= o.created_at %> by <%= o.customer_id %>
+          </p>
+          <div>
+            <p> Men&rsquo;s bikes: <%= o.mens_bikes %> </p>
+            <p> Women&rsquo;s bikes: <%= o.womens_bikes %> </p>
+            <p> Kids&rsquo; bikes: <%= o.kids_bikes %> </p>
+            <!-- TODO calculate total # of bikes here   -->
+            <p>Total bikes: TK</p>
+          </div>
+          <p> <%= o.notes %> </p>
+          <div>
+            <p>Invitation sent? <%= o.invitation_sent %></p>
+            <p>Confirmed? <%= o.confirmed %></p>
+          </div>
+        </div>
+      <% end %>
+    </p>
+  </div>
 </div>
