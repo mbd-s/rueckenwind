@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <%= form_for @donor do |d| %>
+      <div class="input-field col s6">
+        <%= d.label :first_name %>
+        <%= d.text_field :first_name %>
+      </div>
+      <div class="input-field col s6">
+        <%= d.label :last_name %>
+        <%= d.text_field :last_name %>
+      </div>
+      <div class="input-field col s6">
+        <%= d.label :email %>
+        <%= d.email_field :email %>
+      </div>
+      <div class="input-field col s6">
+        <%= d.label :email %>
+        <%= d.email_field :email %>
+      </div>
+      <div class="input-field col s6">
+        <%= d.label :phone %>
+        <%= d.telephone_field :phone %>
+      </div>
+      <div class="submit_button waves-effect waves-light btn green">
+        <%= d.submit "Save" %>
+      </div>
+    <% end %>
+  </div>
+</div>
