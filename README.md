@@ -1,1 +1,1 @@
-<!-- TODO write read.me -->
+[**Rückenwind**](http://rueckenwind.berlin/en/home/) is a Berlin-based organization that fixes up bicycles and and donates them to refugees. This app helps Rückenwind connect with and manage customers, donors, and volunteers. Built by [Isa Abo Muhana](https://github.com/Isaabomohana) and [Michael Silverberg](https://github.com/mbd-s).
