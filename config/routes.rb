@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :orders
   resources :donations
   resources :donors
+  resources :events
 
   root to: 'welcome#index'
 

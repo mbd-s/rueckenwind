@@ -14,11 +14,11 @@
         <%= f.number_field :kids_bikes, min: 0 %>
       </div>
       <div class="input-field col s12">
-        <%= f.label :notes %>
+        <%= f.label :notes, "Anything else you want to tell us\?" %>
         <%= f.text_area :notes %>
       </div>
-      <div class="submit_button waves-effect waves-light btn light-green">
-        <%= f.submit "Submit order"%>
+      <div class="submit_button waves-effect waves-light btn light-green right">
+        <%= f.submit "Save"%>
       </div>
     <% end %>
   </div>

@@ -3,7 +3,7 @@
     <%= form_for @donation do |d| %>
       <div class="input-field col s6">
         <%= d.label :bikes %>
-        <%= d.number_field :bikes, min: 0 %>
+        <%= d.number_field :bikes, :value => '0', :min => '0'  %>
       </div>
       <div class="input-field">
         <%= check_box_tag(:parts) %>
@@ -17,7 +17,7 @@
         <%= d.label :notes %>
         <%= d.text_area :notes %>
       </div>
-      <div class="submit_button waves-effect waves-light btn green">
+      <div class="submit_button waves-effect waves-light btn light-green right">
         <%= d.submit "Submit order"%>
       </div>
     <% end %>

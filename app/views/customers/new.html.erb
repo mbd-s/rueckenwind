@@ -1,31 +1,31 @@
 <div class="container">
   <div>
-      First, tell us how to get in touch with you. In the next step, you'll order the bikes you want.
+      First, tell us how to get in touch with you. In the next step, you'll choose the bikes you want.
   </div>
   <div class="row">
     <%= form_for @customer do |f| %>
       <div class="input-field col s6">
-        <%= f.label :first_name %>
+        <%= f.label :first_name, "First name\*" %>
         <%= f.text_field :first_name %>
       </div>
-      <div class="input-field col s5">
-        <%= f.label :last_name %>
+      <div class="input-field col s6">
+        <%= f.label :last_name, "Last name\*" %>
         <%= f.text_field :last_name %>
       </div>
-      <div class="input-field col s5">
-        <%= f.label :email %>
+      <div class="input-field col s6">
+        <%= f.label :email, "Email\*" %>
         <%= f.email_field :email %>
       </div>
       <div class="input-field col s6">
-        <%= f.label :email %>
+        <%= f.label :email, "Email\*" %>
         <%= f.email_field :email %>
       </div>
       <div class="input-field col s6">
-        <%= f.label :phone %>
+        <%= f.label :phone, "Phone number \(optional\)" %>
         <%= f.telephone_field :phone %>
       </div>
       <div class="input-field col s6">
-        <%= f.label :facebook %>
+        <%= f.label :facebook, "Facebook \(optional\)" %>
         <%= f.url_field :facebook %>
       </div>
       <div class="submit_button waves-effect waves-light btn light-green">
