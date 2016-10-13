@@ -1,21 +1,21 @@
 <div class="container">
   <div class="row">
-    <%= form_for @donation do |d| %>
+    <%= form_for @donation, :html => {:class => 'validate'} do |d| %>
       <div class="input-field col s6">
-        <%= d.label :bikes %>
         <%= d.number_field :bikes, :value => '0', :min => '0'  %>
+        <%= d.label :bikes %>
       </div>
       <div class="input-field">
         <%= check_box_tag(:parts) %>
         <%= label_tag(:parts, "I also have bike parts to donate.") %>
       </div>
       <div class="input-field col s6">
-        <%= d.label :pickup_location %>
         <%= d.text_area :pickup_location %>
+        <%= d.label :pickup_location %>
       </div>
       <div class="input-field col s6">
+        <%= d.text_area :notes, placeholder: "Anything else you want to tell us\?" %>
         <%= d.label :notes %>
-        <%= d.text_area :notes %>
       </div>
       <div class="submit_button waves-effect waves-light btn light-green right">
         <%= d.submit "Submit order"%>

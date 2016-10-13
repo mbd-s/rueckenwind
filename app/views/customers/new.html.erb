@@ -3,33 +3,33 @@
       First, tell us how to get in touch with you. In the next step, you'll choose the bikes you want.
   </div>
   <div class="row">
-    <%= form_for @customer do |f| %>
+    <%= form_for @customer, :html => {:class => 'validate'} do |c| %>
       <div class="input-field col s6">
-        <%= f.label :first_name, "First name\*" %>
-        <%= f.text_field :first_name %>
+        <%= c.text_field :first_name %>
+        <%= c.label :first_name, "First name\*" %>
       </div>
       <div class="input-field col s6">
-        <%= f.label :last_name, "Last name\*" %>
-        <%= f.text_field :last_name %>
+        <%= c.text_field :last_name %>
+        <%= c.label :last_name, "Last name\*" %>
       </div>
       <div class="input-field col s6">
-        <%= f.label :email, "Email\*" %>
-        <%= f.email_field :email %>
+        <%= c.email_field :email %>
+        <%= c.label :email, "Email\*" %>
       </div>
       <div class="input-field col s6">
-        <%= f.label :email, "Email\*" %>
-        <%= f.email_field :email %>
+        <%= c.email_field :email %>
+        <%= c.label :email, "Email\*" %>
       </div>
       <div class="input-field col s6">
-        <%= f.label :phone, "Phone number \(optional\)" %>
-        <%= f.telephone_field :phone %>
+        <%= c.telephone_field :phone %>
+        <%= c.label :phone, "Phone number \(optional\)" %>
       </div>
       <div class="input-field col s6">
-        <%= f.label :facebook, "Facebook \(optional\)" %>
-        <%= f.url_field :facebook %>
+        <%= c.url_field :facebook %>
+        <%= c.label :facebook, "Facebook \(optional\)" %>
       </div>
       <div class="submit_button waves-effect waves-light btn light-green">
-        <%= f.submit "Submit" %>
+        <%= c.submit "Submit" %>
       </div>
     <% end %>
   </div>

@@ -1,21 +1,21 @@
 <div class="container">
   <div class ="row">
-    <%= form_for @volunteer do |v| %>
+    <%= form_for @volunteer, :html => {:class => 'validate'} do |v| %>
       <div class="input-field col s6">
-        <%= v.label :first_name %>
         <%= v.text_field :first_name %>
+        <%= v.label :first_name %>
       </div>
       <div class="input-field col s6">
-        <%= v.label :last_name %>
         <%= v.text_field :last_name %>
+        <%= v.label :last_name %>
       </div>
       <div class="input-field col s6">
-        <%= v.label :email %>
         <%= v.email_field :email %>
+        <%= v.label :email %>
       </div>
       <div class="input-field col s6">
-        <%= v.label :email %>
         <%= v.email_field :email %>
+        <%= v.label :email %>
       </div>
       <div class="submit_button waves-effect waves-light btn right light-green">
         <%= v.submit "Save"%>

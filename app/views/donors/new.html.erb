@@ -1,25 +1,25 @@
 <div class="container">
   <div class="row">
-    <%= form_for @donor do |d| %>
+    <%= form_for @donor, :html => {:class => 'validate'} do |d| %>
       <div class="input-field col s6">
-        <%= d.label :first_name %>
         <%= d.text_field :first_name %>
+        <%= d.label :first_name %>
       </div>
       <div class="input-field col s6">
-        <%= d.label :last_name %>
         <%= d.text_field :last_name %>
+        <%= d.label :last_name %>
       </div>
       <div class="input-field col s6">
-        <%= d.label :email %>
         <%= d.email_field :email %>
-      </div>
-      <div class="input-field col s6">
         <%= d.label :email %>
-        <%= d.email_field :email %>
       </div>
       <div class="input-field col s6">
-        <%= d.label :phone %>
+        <%= d.email_field :email %>
+        <%= d.label :email %>
+      </div>
+      <div class="input-field col s6">
         <%= d.telephone_field :phone %>
+        <%= d.label :phone %>
       </div>
       <div class="submit_button waves-effect waves-light btn light-green right">
         <%= d.submit "Save" %>
