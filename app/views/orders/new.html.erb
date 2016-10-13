@@ -2,15 +2,15 @@
   <div class="row">
     <%= form_for @order, :html => {:class => 'validate'} do |f| %>
       <div class="input-field col s4">
-        <%= f.number_field :mens_bikes, min: 0 %>
+        <%= f.number_field :mens_bikes, :value => '0', :min => '0' %>
         <%= f.label :mens_bikes %>
       </div>
       <div class="input-field col s4">
-        <%= f.number_field :womens_bikes, min: 0 %>
+        <%= f.number_field :womens_bikes, :value => '0', :min => '0' %>
         <%= f.label :womens_bikes %>
       </div>
       <div class="input-field col s4">
-        <%= f.number_field :kids_bikes, min: 0 %>
+        <%= f.number_field :kids_bikes, :value => '0', :min => '0' %>
         <%= f.label :kids_bikes %>
       </div>
       <div class="input-field col s12">
