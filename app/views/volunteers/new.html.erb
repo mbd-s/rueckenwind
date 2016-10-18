@@ -1,4 +1,7 @@
 <div class="container">
+  <div class="row instructions">
+      <strong>Please tell us about your experience level and how to get in touch with you.</strong>
+  </div>
   <div class ="row">
     <%= form_for @volunteer, :html => {:class => 'validate'} do |v| %>
       <div class="input-field col s6">
@@ -23,6 +26,20 @@
         <i class="material-icons prefix">phone</i>
         <%= v.telephone_field :phone %>
         <%= v.label :phone, "Phone \(optional\)" %>
+      </div>
+      <div>
+        <p>
+          <input name="experience" type="radio" id="pro" />
+          <label for="pro">I'm an experienced bike professional. I can oversee a workshop.</label>
+        </p>
+        <p>
+          <input name="experience" type="radio" id="some" />
+          <label for="some">I have some bike knowledge. I can help fix a bike.</label>
+        </p>
+        <p>
+          <input name="experience" type="radio" id="basic"  />
+          <label for="basic">I don't have specialized bike training, but I'd like to help however I can.</label>
+        </p>
       </div>
       <div class="submit_button waves-effect waves-light btn right light-green">
         <%= v.submit "Save"%>
