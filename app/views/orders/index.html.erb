@@ -1,21 +1,18 @@
 <div class="container">
   <div class="row">
-      <% @orders.each do |o| %>
+      <% @orders.reverse_each do |o| %>
         <div class="card-panel grey lighten-4">
-          <p>
-            Order placed at <%= o.created_at %> by <%= o.customer_id %>
-          </p>
+          <p><strong><%= o.customer.first_name %> <%= o.customer.last_name %></strong> placed an order on <strong><%= o.created_at %></strong></p>
           <div>
-            <p> Men&rsquo;s bikes: <%= o.mens_bikes %> </p>
-            <p> Women&rsquo;s bikes: <%= o.womens_bikes %> </p>
-            <p> Kids&rsquo; bikes: <%= o.kids_bikes %> </p>
-            <!-- TODO calculate total # of bikes here   -->
-            <p>Total bikes: TK</p>
-          </div>
-          <p> <%= o.notes %> </p>
+            <p><strong>Men&rsquo;s bikes:</strong> <%= o.mens_bikes %> </p>
+            <p><strong>Women&rsquo;s bikes:</strong> <%= o.womens_bikes %> </p>
+            <p><strong>Kids&rsquo; bikes:</strong> <%= o.kids_bikes %> </p>
+            <p><strong>Total bikes:</strong> <%= o.total_bikes %></p>
+            </div>
+          <p> <strong>Notes:</strong> <%= o.notes %> </p>
           <div>
-            <p>Invitation sent? <%= o.invitation_sent %></p>
-            <p>Confirmed? <%= o.confirmed %></p>
+            <p><strong>Invitation sent?</strong> <%= o.invited_yn %></p>
+            <p><strong>Confirmed?</strong> <%= o.confirmed_yn %></p>
           </div>
         </div>
       <% end %>

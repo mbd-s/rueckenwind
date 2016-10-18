@@ -9,4 +9,16 @@ class Order < ActiveRecord::Base
     end
   end
 
+  def confirmed_yn
+    confirmed ? 'Yes' : 'No'
+  end
+
+  def invited_yn
+    invitation_sent ? 'Yes' : 'No'
+  end
+
+  def total_bikes
+    mens_bikes.to_i + womens_bikes.to_i + kids_bikes.to_i
+  end
+
 end
