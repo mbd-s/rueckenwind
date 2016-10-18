@@ -5,7 +5,12 @@ class OrdersController < ApplicationController
   end
 
   def new
-    @order = Order.new
+    if session[:current_customer_id].nil?
+      flash[:error] = "Sorry, nothing to see here."
+      redirect_to new_customer_path
+    else
+      @order = Order.new
+    end
   end
 
   def create
