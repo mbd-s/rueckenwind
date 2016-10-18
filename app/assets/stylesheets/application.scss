@@ -14,3 +14,21 @@
  *= require_self
  */
 @import "materialize";
+
+nav {
+  margin-bottom: 40px;
+}
+
+body {
+  color: #555;
+  background: #eee;
+
+}
+body a {
+}
+
+h1,
+h2,
+strong {
+  color: #333;
+}
