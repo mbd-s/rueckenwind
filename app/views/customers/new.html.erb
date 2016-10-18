@@ -5,6 +5,7 @@
   <div class="row">
     <%= form_for @customer, :html => {:class => 'validate'} do |c| %>
       <div class="input-field col s6">
+        <i class="material-icons prefix">account_circle</i>
         <%= c.text_field :first_name %>
         <%= c.label :first_name, "First name\*" %>
       </div>
@@ -13,16 +14,18 @@
         <%= c.label :last_name, "Last name\*" %>
       </div>
       <div class="input-field col s6">
+        <i class="material-icons prefix">email</i>
         <%= c.email_field :email %>
         <%= c.label :email, "Email\*" %>
       </div>
       <div class="input-field col s6">
         <%= c.email_field :email %>
-        <%= c.label :email, "Email\*" %>
+        <%= c.label :email, "Email \(retype\)\*" %>
       </div>
       <div class="input-field col s6">
+        <i class="material-icons prefix">phone</i>
         <%= c.telephone_field :phone %>
-        <%= c.label :phone, "Phone number \(optional\)" %>
+        <%= c.label :phone, "Phone \(optional\)" %>
       </div>
       <div class="input-field col s6">
         <%= c.url_field :facebook %>
