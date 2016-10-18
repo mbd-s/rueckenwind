@@ -11,5 +11,7 @@ Rails.application.routes.draw do
 
   get "/pages/:page" => "pages#show"
 
+  get "/confirm/:token" => "customers#confirm"
+
   get "*path" => redirect("/")
 end

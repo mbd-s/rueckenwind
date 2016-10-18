@@ -6,15 +6,7 @@
   <body>
     <h3>Welcome to Rückenwind, <%= @customer.first_name %>.</h3>
     <p>
-      You placed an order for [bikesTK] on [datetimeTK].<br>
+      Please click this link to confirm your email address: <a href="#{@url}"><%= @url %></a>
     </p>
-    <p>
-      Here's what happens next:<br>
-      We'll email you as soon as we have an open space in a workshop. If you're free,
-      you'll confirm and come in at the appointed time to build your bike (or bikes).
-      If you're busy, it's no problem. Just tell us and we'll invite you to the next
-      available workshop.
-    </p>
-    <p>In the meantime, let us know if you have any questions or concerns.</p>
   </body>
 </html>
