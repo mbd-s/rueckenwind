@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-  </head>
-  <body>
-    <h3>Welcome to Rückenwind, <%= @customer.first_name %>.</h3>
-    <p>
-      Please click this link to confirm your email address: <a href="<%= @url %>"><%= @url %></a>
-    </p>
-  </body>
-</html>
+<p>
+  Welcome to Rückenwind, <%= @customer.first_name %>.
+</p>
+<p>
+  To confirm your email address, please click this link: <a href="<%= @url %>"><%= @url %></a>
+</p>
