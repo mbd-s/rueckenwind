@@ -6,4 +6,10 @@ class CustomerMailer < ApplicationMailer
     @customer = customer
     mail(to: @customer.email, subject: 'Welcome to Rückenwind! Please confirm your email')
   end
+
+  def order_confirmation(customer)
+    @customer = customer
+    mail(to: @customer.email, subject: 'Thanks for your order!')
+  end
+
 end

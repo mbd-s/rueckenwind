@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
 
   def new
     if session[:current_customer_id].nil?
-      flash[:error] = "Sorry, nothing to see here."
+      flash[:error] = "Please enter your contact information first."
       redirect_to new_customer_path
     else
       @order = Order.new
@@ -17,7 +17,8 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.customer_id = session[:current_customer_id]
     if @order.save
-      flash[:success] = "Thank you! Check your email for confirmation of your order."
+      CustomerMailer.order_confirmation(@order.customer).deliver
+      flash[:notice] = "Thank you! We've e-mailed you a summary of your order."
       redirect_to "/pages/confirmation"
     else
       flash[:error] = @order.errors.full_messages.to_sentence

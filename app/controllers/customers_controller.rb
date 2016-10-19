@@ -12,7 +12,7 @@ class CustomersController < ApplicationController
     @customer = Customer.new(customer_params)
     if @customer.save
       CustomerMailer.email_confirmation(@customer).deliver
-      flash[:notice] = "We\'ve emailed you to confirm your email address. Please click the link to be redirected to the application."
+      flash[:notice] = "We\'ve emailed you to confirm your email address. Please click the link to complete your order."
       redirect_to "/pages/confirmation"
     else
       flash[:error] = @customer.errors.full_messages.to_sentence
