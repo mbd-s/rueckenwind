@@ -7,8 +7,8 @@
         <%= d.label :bikes %>
       </div>
       <div class="input-field">
-        <%= check_box_tag(:parts) %>
-        <%= label_tag(:parts, "I also have bike parts to donate.") %>
+        <%= d.check_box(:parts) %>
+        <%= d.label(:parts, "I also have bike parts to donate.") %>
       </div>
       <div class="input-field col s12">
         <i class="material-icons prefix">add_location</i>

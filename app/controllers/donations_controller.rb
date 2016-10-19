@@ -1,7 +1,7 @@
 class DonationsController < ApplicationController
 
   def index
-    @donation = Donation.all
+    @donations = Donation.all
   end
 
   def new

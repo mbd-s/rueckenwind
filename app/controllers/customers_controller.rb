@@ -1,7 +1,7 @@
 class CustomersController < ApplicationController
 
   def index
-    @customer = Customer.all
+    @customers = Customer.all
   end
 
   def new
@@ -13,10 +13,10 @@ class CustomersController < ApplicationController
     if @customer.save
       CustomerMailer.email_confirmation(@customer).deliver
       flash[:notice] = "We\'ve emailed you to confirm your email address. Please click the link to be redirected to the application."
-      redirect_to new_customer_path
+      redirect_to "/pages/confirmation"
     else
       flash[:error] = @customer.errors.full_messages.to_sentence
-      render :new
+      redirect_to new_customer_path
     end
   end
 

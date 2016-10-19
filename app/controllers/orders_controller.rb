@@ -18,10 +18,10 @@ class OrdersController < ApplicationController
     @order.customer_id = session[:current_customer_id]
     if @order.save
       flash[:success] = "Thank you! Check your email for confirmation of your order."
-      redirect_to root_path
+      redirect_to "/pages/confirmation"
     else
       flash[:error] = @order.errors.full_messages.to_sentence
-      render :new
+      redirect_to new_order_path
     end
   end
 

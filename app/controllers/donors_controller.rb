@@ -1,7 +1,7 @@
 class DonorsController < ApplicationController
 
   def index
-    @donor = Donor.all
+    @donors = Donor.all
   end
 
   def new
@@ -15,7 +15,7 @@ class DonorsController < ApplicationController
       redirect_to new_donation_path
     else
       flash[:error] = @donor.errors.full_messages.to_sentence
-      render :new
+      redirect_to new_donor_path
     end
   end
 
