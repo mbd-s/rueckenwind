@@ -27,6 +27,8 @@ class CustomersController < ApplicationController
       redirect_to new_customer_path
     else
       session[:current_customer_id] = @customer.id
+      @customer.email_confirmed = true
+      @customer.save
       redirect_to new_order_path
     end
   end
