@@ -12,7 +12,7 @@ class CustomersController < ApplicationController
     @customer = Customer.new(customer_params)
     if @customer.save
       CustomerMailer.email_confirmation(@customer).deliver
-      flash[:notice] = "We\'ve emailed you to confirm your email address. Please click the link to complete your order."
+      flash[:notice] = "We've emailed you to confirm your email address. Please click the link to complete your order."
       redirect_to "/pages/confirmation"
     else
       flash[:error] = @customer.errors.full_messages.to_sentence
@@ -23,12 +23,13 @@ class CustomersController < ApplicationController
   def confirm
     @customer = Customer.find(params[:token])
     if @customer.nil?
-      flash[:error] = "We couldn\'t find your information. Please try again."
+      flash[:error] = "We couldn't find your information. Please try again."
       redirect_to new_customer_path
     else
       session[:current_customer_id] = @customer.id
       @customer.email_confirmed = true
       @customer.save
+      flash[:notice] = "Thanks for confirming your email address. You're now able to complete your order."
       redirect_to new_order_path
     end
   end
