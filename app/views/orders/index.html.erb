@@ -2,7 +2,7 @@
   <div class="row">
       <% @orders.reverse_each do |o| %>
         <div class="card-panel grey lighten-4">
-          <p><strong><%= o.customer.first_name %> <%= o.customer.last_name %></strong> placed an order on <strong><%= o.created_at %></strong></p>
+          <p><strong><%= o.customer.first_name %> <%= o.customer.last_name %></strong> placed an order on <strong><%= o.created_at.strftime("%d %b. %Y") %></strong> at <strong><%= o.created_at.strftime("%H:%M") %></strong></p>
           <div>
             <p><strong>Men&rsquo;s bikes:</strong> <%= o.mens_bikes %> </p>
             <p><strong>Women&rsquo;s bikes:</strong> <%= o.womens_bikes %> </p>
