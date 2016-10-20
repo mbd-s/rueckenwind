@@ -32,6 +32,20 @@ class OrdersController < ApplicationController
     render :show
   end
 
+  def edit
+    render :edit
+  end
+
+  def update
+  end
+
+  def destroy
+    @order = Order.find(params[:id])
+    @order.destroy
+    flash[:notice] = "Order successfully deleted."
+    redirect_to root_path
+  end
+
   private
 
   def order_params

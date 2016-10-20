@@ -1,20 +1,28 @@
 <div class="container">
-  <div class="row">
-      <% @orders.reverse_each do |o| %>
-        <div class="card-panel grey lighten-4">
-          <p><strong><%= o.customer.first_name %> <%= o.customer.last_name %></strong> placed an order on <strong><%= o.created_at.strftime("%d %b. %Y") %></strong> at <strong><%= o.created_at.strftime("%H:%M") %></strong></p>
-          <div>
-            <p><strong>Men&rsquo;s bikes:</strong> <%= o.mens_bikes %> </p>
-            <p><strong>Women&rsquo;s bikes:</strong> <%= o.womens_bikes %> </p>
-            <p><strong>Kids&rsquo; bikes:</strong> <%= o.kids_bikes %> </p>
-            <p><strong>Total bikes:</strong> <%= o.total_bikes %></p>
-            </div>
-          <p> <strong>Notes:</strong> <%= o.notes %> </p>
-          <div>
-            <p><strong>Invitation sent?</strong> <%= o.invited_yn %></p>
-            <p><strong>Confirmed?</strong> <%= o.confirmed_yn %></p>
-          </div>
-        </div>
+  <table class="striped light-green responsive-table">
+    <thead>
+      <tr>
+        <th>Customer</th>
+        <th>Email</th>
+        <th>Facebook</th>
+        <th>Registered</th>
+        <th>Invited</th>
+        <th>Number of bikes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orders.reverse_each do |order| %>
+        <tr>
+          <td><%= order.customer.first_name %> <%= order.customer.last_name %></td>
+          <td><%= order.customer.email %></td>
+          <td><%= order.customer.facebook %></td>
+          <td><%= order.created_at.strftime("%d %b. %Y")%></td>
+          <td><%= order.invited_yn %></td>
+          <td><%= order.total_bikes %></td>
+          <td>
+            <%= link_to "Delete", order, method: :delete, data: { confirm: "Are you sure?" } %>
+          </td>
+        </tr>
       <% end %>
-  </div>
-</div>
+    </tbody>
+  </table>
