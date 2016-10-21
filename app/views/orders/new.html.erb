@@ -1,27 +1,27 @@
 <div class="container">
   <div class="row">
-    <%= form_for @order, :html => {:class => 'validate'} do |f| %>
+    <%= form_for @order, :html => {:class => 'validate'} do |o| %>
       <div class="input-field col s4">
         <i class="material-icons prefix">directions_bike</i>
-        <%= f.number_field :mens_bikes, :value => '0', :min => '0' %>
-        <%= f.label :mens_bikes %>
+        <%= o.number_field :mens_bikes, :value => '0', :min => '0' %>
+        <%= o.label :mens_bikes %>
       </div>
       <div class="input-field col s4">
         <i class="material-icons prefix">directions_bike</i>
-        <%= f.number_field :womens_bikes, :value => '0', :min => '0' %>
-        <%= f.label :womens_bikes %>
+        <%= o.number_field :womens_bikes, :value => '0', :min => '0' %>
+        <%= o.label :womens_bikes %>
       </div>
       <div class="input-field col s4">
         <i class="material-icons prefix">directions_bike</i>
-        <%= f.number_field :kids_bikes, :value => '0', :min => '0' %>
-        <%= f.label :kids_bikes %>
+        <%= o.number_field :kids_bikes, :value => '0', :min => '0' %>
+        <%= o.label :kids_bikes %>
       </div>
       <div class="input-field col s12">
         <i class="material-icons prefix">create</i>
-        <%= f.text_area :notes, placeholder: "Anything else you want to tell us\?" %>
+        <%= o.text_area :notes, placeholder: "Anything else you want to tell us\?" %>
       </div>
       <div class="submit_button waves-effect waves-light btn light-green right">
-        <%= f.submit "Save"%>
+        <%= o.submit "Save"%>
       </div>
     <% end %>
   </div>

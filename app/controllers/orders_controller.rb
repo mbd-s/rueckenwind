@@ -28,22 +28,27 @@ class OrdersController < ApplicationController
     end
   end
 
-  def show
-    render :show
-  end
-
   def edit
+    @order = Order.find(params[:id])
     render :edit
   end
 
   def update
+    @order = Order.find(params[:id])
+    if @order.update(order_params)
+      flash[:notice] = "Order successfully updated."
+      redirect_to orders_path
+    else
+      flash[:error] = @order.errors.full_messages.to_sentence
+      render :edit
+    end
   end
 
   def destroy
     @order = Order.find(params[:id])
     @order.destroy
     flash[:notice] = "Order successfully deleted."
-    redirect_to root_path
+    redirect_to orders_path
   end
 
   private
