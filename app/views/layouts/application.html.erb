@@ -12,13 +12,13 @@
 <body>
   <nav class="light-green">
     <div class="nav-wrapper">
-      <%= link_to "Rückenwind", root_path, { :class=>"brand-logo left" } %>
+      <%= link_to image_tag("logo.png", :class => "rueckenwind_logo", :alt => "Rückenwind logo"), root_path, { :class=>"brand-logo left" } %>
       <ul class="right">
         <li>
           <%= link_to "About", "/pages/about" %>
         </li>
         <li>
-          <a href="#">Contact</a>
+          <%= link_to "Contact", "http://rueckenwind.berlin/en/contact/", :target => "_blank" %>
         </li>
         <li>
           <a href="#">Sign in</a>
