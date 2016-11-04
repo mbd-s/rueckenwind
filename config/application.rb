@@ -20,10 +20,49 @@ module Rueckenwind
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    config.action_mailer.default_url_options = { scheme: 'http://', host: 'localhost', port: '3000' }
+    config.action_mailer.default_url_options = { scheme: 'http://', host: 'localhost', port: ':3000' }
     config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.permissions = {
+      "admin" => {
+        "orders": ["index", "show", "new", "create", "edit", "update", "destroy"],
+        "events": ["index", "show"],
+        "donations": ["index", "show", "new", "create", "edit", "update", "destroy"],
+        "invitations": ["index", "show", "new", "create", "edit", "update", "destroy"],
+        "pickups": ["index", "show", "new", "create", "edit", "update", "destroy"],
+        "welcome": ["index"]
+      },
+      "organizer" => {
+        "orders": ["index", "show", "new", "create", "edit", "update", "destroy"],
+        "events": ["index", "show", "new", "create", "edit", "update", "destroy"],
+        "donations": ["index", "show", "new", "create", "edit", "update", "destroy"],
+        "invitations": ["index", "show", "new", "create", "edit", "update", "destroy"],
+        "pickups": ["index", "show", "new", "create", "edit", "update", "destroy"],
+      },
+      "donor" => {
+        "orders": [],
+        "events": [],
+        "donations": ["new", "create", "show"],
+        "invitations": [],
+        "pickups": [],
+      },
+      "volunteer" => {
+        "orders": [],
+        "events": ["show"],
+        "donations": [],
+        "invitations": [],
+        "pickups": []
+      },
+      "customer" => {
+        "orders": ["new", "create", "show"],
+        "events": ["show"],
+        "donations": [],
+        "invitations": ["show"],
+        "pickups": []
+      }
+    }
   end
 end

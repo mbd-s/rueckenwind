@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   root to: 'welcome#index'
 
+  get "/sign_up/:role" => "devise#session"
+
   get "/pages/:page" => "pages#show"
 
   get "/confirm/:token" => "customers#confirm"
