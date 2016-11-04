@@ -33,7 +33,8 @@ module Rueckenwind
         "donations": ["index", "show", "new", "create", "edit", "update", "destroy"],
         "invitations": ["index", "show", "new", "create", "edit", "update", "destroy"],
         "pickups": ["index", "show", "new", "create", "edit", "update", "destroy"],
-        "welcome": ["index"]
+        "welcome": ["index"],
+        "users": ["index", "new", "create"]
       },
       "organizer" => {
         "orders": ["index", "show", "new", "create", "edit", "update", "destroy"],
@@ -41,27 +42,15 @@ module Rueckenwind
         "donations": ["index", "show", "new", "create", "edit", "update", "destroy"],
         "invitations": ["index", "show", "new", "create", "edit", "update", "destroy"],
         "pickups": ["index", "show", "new", "create", "edit", "update", "destroy"],
-      },
-      "donor" => {
-        "orders": [],
-        "events": [],
-        "donations": ["new", "create", "show"],
-        "invitations": [],
-        "pickups": [],
+        "users": ["index"]
       },
       "volunteer" => {
         "orders": [],
         "events": ["show"],
         "donations": [],
         "invitations": [],
-        "pickups": []
-      },
-      "customer" => {
-        "orders": ["new", "create", "show"],
-        "events": ["show"],
-        "donations": [],
-        "invitations": ["show"],
-        "pickups": []
+        "pickups": [],
+        "users": []
       }
     }
   end
