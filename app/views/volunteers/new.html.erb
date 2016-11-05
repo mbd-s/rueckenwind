@@ -1,48 +1,47 @@
-<div class="container">
-  <div class="row instructions">
-      <strong>Please tell us about your experience level and how to get in touch with you.</strong>
-  </div>
-  <div class="row">
-    <%= form_for @volunteer, :html => {:class => 'validate'} do |v| %>
-      <div class="input-field col s6">
-        <i class="material-icons prefix">account_circle</i>
-        <%= v.text_field :first_name %>
-        <%= v.label :first_name %>
-      </div>
-      <div class="input-field col s6">
-        <%= v.text_field :last_name %>
-        <%= v.label :last_name %>
-      </div>
-      <div class="input-field col s6">
-        <i class="material-icons prefix">email</i>
-        <%= v.email_field :email %>
-        <%= v.label :email, "Email" %>
-      </div>
-      <div class="input-field col s6">
-        <i class="material-icons prefix">phone</i>
-        <%= v.telephone_field :phone %>
-        <%= v.label :phone, "Phone \(optional\)" %>
-      </div>
-      <div class="left">
-        <p>
-          <strong>Please choose one:</strong>
-        </p>
-        <p>
-          <%= v.radio_button :experience, "pro" %>
-          <%= v.label :experience, "I'm an experienced bike professional. I can oversee a workshop.", :value => "pro" %>
-        </p>
-        <p>
-          <%= v.radio_button :experience, "some" %>
-          <%= v.label :experience, "I have some bike knowledge. I can help fix a bike.", :value => "some" %>
-        </p>
-        <p>
-          <%= v.radio_button :experience, "basic" %>
-          <%= v.label :experience, "I don't have specialized bike training, but I'd like to help however I can.", :value => "basic" %>
-        </p>
-      </div>
-      <div class="submit_button waves-effect waves-light btn light-green">
-        <%= v.submit "Save"%>
-      </div>
-    <% end %>
-  </div>
+<div class="row">
+  <strong>Please tell us about your experience level and how to get in touch with you.</strong>
+</div>
+<div class="row">
+  <%= form_for @volunteer, :html => {:class => 'validate'} do |v| %>
+    <div class="input-field col s12 m6">
+      <i class="material-icons prefix">account_circle</i>
+      <%= v.text_field :first_name %>
+      <%= v.label :first_name %>
+    </div>
+    <div class="input-field col s12 m6">
+      <i class="material-icons prefix">account_circle</i>
+      <%= v.text_field :last_name %>
+      <%= v.label :last_name %>
+    </div>
+    <div class="input-field col s12 m6">
+      <i class="material-icons prefix">email</i>
+      <%= v.email_field :email %>
+      <%= v.label :email, "Email" %>
+    </div>
+    <div class="input-field col s12 m6">
+      <i class="material-icons prefix">phone</i>
+      <%= v.telephone_field :phone %>
+      <%= v.label :phone, "Phone \(optional\)" %>
+    </div>
+    <div class="left">
+      <p>
+        <strong>Please choose one:</strong>
+      </p>
+      <p>
+        <%= v.radio_button :experience, "pro" %>
+        <%= v.label :experience, "I'm an experienced bike professional. I can oversee a workshop.", :value => "pro" %>
+      </p>
+      <p>
+        <%= v.radio_button :experience, "some" %>
+        <%= v.label :experience, "I have some bike knowledge. I can help fix a bike.", :value => "some" %>
+      </p>
+      <p>
+        <%= v.radio_button :experience, "basic" %>
+        <%= v.label :experience, "I don't have specialized bike training, but I'd like to help however I can.", :value => "basic" %>
+      </p>
+    </div>
+    <div class="submit_button waves-effect waves-light btn light-green">
+      <%= v.submit "Save"%>
+    </div>
+  <% end %>
 </div>

@@ -1,31 +1,30 @@
-<div class="container">
-  <div class="row instructions">
-      <strong>First, tell us how to get in touch with you. In the next step, we'll ask for the details of your donation.</strong>
-  </div>
-  <div class="row">
-    <%= form_for @donor, :html => {:class => 'validate'} do |d| %>
-      <div class="input-field col s6">
-        <i class="material-icons prefix">account_circle</i>
-        <%= d.text_field :first_name %>
-        <%= d.label :first_name %>
-      </div>
-      <div class="input-field col s6">
-        <%= d.text_field :last_name %>
-        <%= d.label :last_name %>
-      </div>
-      <div class="input-field col s6">
-        <i class="material-icons prefix">email</i>
-        <%= d.email_field :email %>
-        <%= d.label :email, "Email" %>
-      </div>
-      <div class="input-field col s6">
-        <i class="material-icons prefix">phone</i>
-        <%= d.telephone_field :phone %>
-        <%= d.label :phone, "Phone \(optional\)" %>
-      </div>
-      <div class="submit_button waves-effect waves-light btn light-green right">
-        <%= d.submit "Save" %>
-      </div>
-    <% end %>
-  </div>
+<div class="row">
+  <strong>First, tell us how to get in touch with you. In the next step, we'll ask for the details of your donation.</strong>
+</div>
+<div class="row">
+  <%= form_for @donor, :html => {:class => 'validate'} do |d| %>
+    <div class="input-field col s12 m6">
+      <i class="material-icons prefix">account_circle</i>
+      <%= d.text_field :first_name %>
+      <%= d.label :first_name %>
+    </div>
+    <div class="input-field col s12 m6">
+      <i class="material-icons prefix">account_circle</i>
+      <%= d.text_field :last_name %>
+      <%= d.label :last_name %>
+    </div>
+    <div class="input-field col s12 m6">
+      <i class="material-icons prefix">email</i>
+      <%= d.email_field :email %>
+      <%= d.label :email, "Email" %>
+    </div>
+    <div class="input-field col s12 m6">
+      <i class="material-icons prefix">phone</i>
+      <%= d.telephone_field :phone %>
+      <%= d.label :phone, "Phone \(optional\)" %>
+    </div>
+    <div class="submit_button waves-effect waves-light btn light-green right">
+      <%= d.submit "Save" %>
+    </div>
+  <% end %>
 </div>

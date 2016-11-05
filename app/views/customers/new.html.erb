@@ -1,35 +1,34 @@
-<div class="container">
-  <div class="row instructions">
-      <strong>First, tell us how to get in touch with you. In the next step, you'll choose the bikes you want.</strong>
-  </div>
-  <div class="row">
-    <%= form_for @customer, :html => {:class => 'validate'} do |c| %>
-      <div class="input-field col s6">
-        <i class="material-icons prefix">account_circle</i>
-        <%= c.text_field :first_name %>
-        <%= c.label :first_name, "First name" %>
-      </div>
-      <div class="input-field col s6">
-        <%= c.text_field :last_name %>
-        <%= c.label :last_name, "Last name" %>
-      </div>
-      <div class="input-field col s6">
-        <i class="material-icons prefix">email</i>
-        <%= c.email_field :email %>
-        <%= c.label :email, "Email" %>
-      </div>
-      <div class="input-field col s6">
-        <%= c.url_field :facebook %>
-        <%= c.label :facebook, "Facebook \(optional\)" %>
-      </div>
-      <div class="input-field col s6">
-        <i class="material-icons prefix">phone</i>
-        <%= c.telephone_field :phone %>
-        <%= c.label :phone, "Phone \(optional\)" %>
-      </div>
-      <div class="submit_button waves-effect waves-light btn light-green">
-        <%= c.submit "Submit" %>
-      </div>
-    <% end %>
-  </div>
+<div class="row">
+  <strong>First, tell us how to get in touch with you. In the next step, you'll choose the bikes you want.</strong>
+</div>
+<div class="row">
+  <%= form_for @customer, :html => {:class => 'validate'} do |c| %>
+    <div class="input-field col s12 m6">
+      <i class="material-icons prefix">account_circle</i>
+      <%= c.text_field :first_name %>
+      <%= c.label :first_name, "First name" %>
+    </div>
+    <div class="input-field col s12 m6">
+      <i class="material-icons prefix">account_circle</i>
+      <%= c.text_field :last_name %>
+      <%= c.label :last_name, "Last name" %>
+    </div>
+    <div class="input-field col s12 m6">
+      <i class="material-icons prefix">email</i>
+      <%= c.email_field :email %>
+      <%= c.label :email, "Email" %>
+    </div>
+    <div class="input-field col s12 m6">
+      <%= c.url_field :facebook %>
+      <%= c.label :facebook, "Facebook \(optional\)" %>
+    </div>
+    <div class="input-field col s12 m6">
+      <i class="material-icons prefix">phone</i>
+      <%= c.telephone_field :phone %>
+      <%= c.label :phone, "Phone \(optional\)" %>
+    </div>
+    <div class="submit_button waves-effect waves-light btn light-green">
+      <%= c.submit "Submit" %>
+    </div>
+  <% end %>
 </div>

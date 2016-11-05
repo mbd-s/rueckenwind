@@ -1,28 +1,27 @@
-<div class="container">
-  <table class="striped light-green responsive-table">
-    <thead>
+<table class="striped light-green responsive-table">
+  <thead>
+    <tr>
+      <th>Customer</th>
+      <th>Email</th>
+      <th>Facebook</th>
+      <th>Registered</th>
+      <th>Invited</th>
+      <th>Number of bikes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.reverse_each do |order| %>
       <tr>
-        <th>Customer</th>
-        <th>Email</th>
-        <th>Facebook</th>
-        <th>Registered</th>
-        <th>Invited</th>
-        <th>Number of bikes</th>
+        <td><%= order.customer.first_name %> <%= order.customer.last_name %></td>
+        <td><%= order.customer.email %></td>
+        <td><%= order.customer.facebook %></td>
+        <td><%= order.created_at.strftime("%d %b. %Y")%></td>
+        <td><%= order.invited_yn %></td>
+        <td><%= order.total_bikes %></td>
+        <td><%= link_to "Edit", edit_order_path(order) %></td>
+        <td><%= link_to "Delete", order, method: :delete, data: { confirm: "Are you sure?" } %>
+        </td>
       </tr>
-    </thead>
-    <tbody>
-      <% @orders.reverse_each do |order| %>
-        <tr>
-          <td><%= order.customer.first_name %> <%= order.customer.last_name %></td>
-          <td><%= order.customer.email %></td>
-          <td><%= order.customer.facebook %></td>
-          <td><%= order.created_at.strftime("%d %b. %Y")%></td>
-          <td><%= order.invited_yn %></td>
-          <td><%= order.total_bikes %></td>
-          <td><%= link_to "Edit", edit_order_path(order) %></td>
-          <td><%= link_to "Delete", order, method: :delete, data: { confirm: "Are you sure?" } %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+    <% end %>
+  </tbody>
+</table>

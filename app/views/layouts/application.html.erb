@@ -30,15 +30,23 @@
       </ul>
     </div>
   </nav>
-<p><%= flash[:notice] %></p>
-<p><%= flash[:error] %></p>
-<%= yield %>
-<footer class="page-footer light-green">
+  
   <div class="container">
-    <div class="footer-copyright">
-      &copy; 2016 Rückenwind
-    </div>
+
+    <p><%= flash[:notice] %></p>
+    <p><%= flash[:error] %></p>
+
+    <%= yield %>
+
   </div>
-</footer>
+
+  <footer class="page-footer light-green">
+    <div class="container">
+      <div class="footer-copyright light-green">
+        &copy; 2016 Rückenwind
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>

@@ -1,29 +1,27 @@
-<div class="container">
-  <div class="row">
-      <% @donations.reverse_each do |d| %>
-        <div class="card-panel grey lighten-4">
-          <p>
-            <strong><%= d.donor.first_name %> <%= d.donor.last_name %></strong> made a donation on <strong><%= d.created_at.strftime("%d %b. %Y") %></strong> at <strong><%= d.created_at.strftime("%H:%M") %></strong>
-          </p>
-          <p>
-            <strong>Email: </strong><%= d.donor.email %>
-          </p>
-          <p>
-            <strong>Phone: </strong><%= d.donor.phone %>
-          </p>
-          <p>
-            <strong>Total bikes: </strong><%= d.bikes %>
-          </p>
-          <p>
-            <strong>Pickup location: </strong><%= d.pickup_location %>
-          </p>
-          <p>
-            <strong>Parts to donate? </strong><%= d.hasparts_yn %>
-          </p>
-          <p>
-            <strong>Notes: </strong><%= d.notes %>
-          </p>
-        </div>
-      <% end %>
-  </div>
+<div class="row">
+  <% @donations.reverse_each do |d| %>
+    <div class="card-panel grey lighten-4">
+      <p>
+        <strong><%= d.donor.first_name %> <%= d.donor.last_name %></strong> made a donation on <strong><%= d.created_at.strftime("%d %b. %Y") %></strong> at <strong><%= d.created_at.strftime("%H:%M") %></strong>
+      </p>
+      <p>
+        <strong>Email: </strong><%= d.donor.email %>
+      </p>
+      <p>
+        <strong>Phone: </strong><%= d.donor.phone %>
+      </p>
+      <p>
+        <strong>Total bikes: </strong><%= d.bikes %>
+      </p>
+      <p>
+        <strong>Pickup location: </strong><%= d.pickup_location %>
+      </p>
+      <p>
+        <strong>Parts to donate? </strong><%= d.hasparts_yn %>
+      </p>
+      <p>
+        <strong>Notes: </strong><%= d.notes %>
+      </p>
+    </div>
+  <% end %>
 </div>

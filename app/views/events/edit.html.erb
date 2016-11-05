@@ -1,24 +1,22 @@
-<div class="container">
-  <div class="row">
-    <%= form_for @event do |e| %>
-      <div class="input-field col l3">
-        <i class="material-icons prefix">today</i>
-        <%= e.text_field :date, class: "datepicker" %>
-        <%= e.label :date %>
-      </div>
-      <div class="input-field col l3">
-        <i class="material-icons prefix">query_builder</i>
-        <%= e.text_field :start_time %>
-        <%= e.label :start_time %>
-      </div>
-      <div class="input-field col l3">
-        <i class="material-icons prefix">query_builder</i>
-        <%= e.text_field :end_time %>
-        <%= e.label :end_time %>
-      </div>
-      <div class="submit_button waves-effect waves-light btn light-green right">
-        <%= e.submit "Save Changes"%>
-      </div>
-    <% end %>
-  </div>
+<div class="row">
+  <%= form_for @event do |e| %>
+    <div class="input-field col l3">
+      <i class="material-icons prefix">today</i>
+      <%= e.text_field :date, class: "datepicker" %>
+      <%= e.label :date %>
+    </div>
+    <div class="input-field col l3">
+      <i class="material-icons prefix">query_builder</i>
+      <%= e.text_field :start_time %>
+      <%= e.label :start_time %>
+    </div>
+    <div class="input-field col l3">
+      <i class="material-icons prefix">query_builder</i>
+      <%= e.text_field :end_time %>
+      <%= e.label :end_time %>
+    </div>
+    <div class="submit_button waves-effect waves-light btn light-green right">
+      <%= e.submit "Save Changes"%>
+    </div>
+  <% end %>
 </div>
