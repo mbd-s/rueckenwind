@@ -21,7 +21,11 @@
           <%= link_to "Contact", "http://rueckenwind.berlin/en/contact/", :target => "_blank" %>
         </li>
         <li>
-          <%= link_to "Sign in", new_user_session_path %> 
+          <% if current_user.nil? %>
+            <%= link_to "Sign in", new_user_session_path %>
+          <% else %>
+            <%= link_to 'Sign out', destroy_user_session_path, method: :delete%>
+          <% end %>
         </li>
       </ul>
     </div>
