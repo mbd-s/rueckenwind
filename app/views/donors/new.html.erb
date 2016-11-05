@@ -1,8 +1,11 @@
 <div class="row">
-  <strong>First, tell us how to get in touch with you. In the next step, we'll ask for the details of your donation.</strong>
+  <div class="col s12">
+    <strong>First, tell us how to get in touch with you. In the next step, we'll ask for the details of your donation.</strong>
+  </div>
 </div>
-<div class="row">
-  <%= form_for @donor, :html => {:class => 'validate'} do |d| %>
+
+<%= form_for @donor, :html => {:class => 'validate'} do |d| %>
+  <div class="row">
     <div class="input-field col s6">
       <i class="material-icons prefix">account_circle</i>
       <%= d.text_field :first_name %>
@@ -12,6 +15,9 @@
       <%= d.text_field :last_name %>
       <%= d.label :last_name %>
     </div>
+  </div>
+
+  <div class="row">
     <div class="input-field col s12 m6">
       <i class="material-icons prefix">email</i>
       <%= d.email_field :email %>
@@ -22,8 +28,10 @@
       <%= d.telephone_field :phone %>
       <%= d.label :phone, "Phone \(optional\)" %>
     </div>
-    <div class="submit_button waves-effect waves-light btn light-green right">
-      <%= d.submit "Save" %>
-    </div>
-  <% end %>
-</div>
+  </div>
+
+  <div class="submit_button waves-effect waves-light btn light-green">
+    <%= d.submit "Save" %>
+  </div>
+
+<% end %>

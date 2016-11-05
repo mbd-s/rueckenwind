@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
 
   before_action :authenticate_user!, :except => [:new, :create, :show]
+  before_action :authorize
 
   def index
     @orders = Order.all

@@ -1,25 +1,34 @@
+<%= form_for @donation, :html => {:class => 'validate'} do |d| %>
+
 <div class="row">
-  <%= form_for @donation, :html => {:class => 'validate'} do |d| %>
-    <div class="input-field col s6">
-      <i class="material-icons prefix">directions_bike</i>
-      <%= d.number_field :bikes, :value => '0', :min => '0'  %>
-      <%= d.label :bikes %>
-    </div>
-    <div class="input-field">
-      <%= d.check_box(:parts) %>
-      <%= d.label(:parts, "I also have bike parts to donate.") %>
-    </div>
-    <div class="input-field col s12">
-      <i class="material-icons prefix">add_location</i>
-      <%= d.text_area :pickup_location %>
-      <%= d.label :pickup_location %>
-    </div>
-    <div class="input-field col s12">
-      <i class="material-icons prefix">create</i>
-      <%= d.text_area :notes, placeholder: "Anything else you want to tell us\?" %>
-    </div>
-    <div class="submit_button waves-effect waves-light btn light-green right">
-      <%= d.submit "Submit order"%>
-    </div>
-  <% end %>
+  <div class="input-field col s6">
+    <i class="material-icons prefix">directions_bike</i>
+    <%= d.number_field :bikes, :value => '0', :min => '0'  %>
+    <%= d.label :bikes %>
+  </div>
+  <p class="input-field">
+    <%= d.check_box(:parts) %>
+    <%= d.label(:parts, "I also have bike parts to donate.") %>
+  </p>
 </div>
+
+<div class="row">
+  <div class="input-field col s12">
+    <i class="material-icons prefix">add_location</i>
+    <%= d.text_area :pickup_location %>
+    <%= d.label :pickup_location %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="input-field col s12">
+    <i class="material-icons prefix">create</i>
+    <%= d.text_area :notes, placeholder: "Anything else you want to tell us\?" %>
+  </div>
+</div>
+
+<div class="submit_button waves-effect waves-light btn light-green right">
+  <%= d.submit "Submit order"%>
+</div>
+
+<% end %>
