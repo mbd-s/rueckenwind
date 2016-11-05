@@ -10,52 +10,57 @@
   <%= csrf_meta_tags %>
   <%= favicon_link_tag 'favicon.ico' %>
 </head>
+
 <body>
-  <nav class="light-green">
-    <div class="nav-wrapper">
-      <%= link_to image_tag("logo.png", :class => "rueckenwind_logo", :alt => "Rückenwind logo"), root_path, { :class=>"brand-logo center" } %>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li>
-          <%= link_to "About", "/pages/about" %>
-        </li>
-        <li>
-          <%= link_to "Contact", "http://rueckenwind.berlin/en/contact/", :target => "_blank" %>
-        </li>
-        <li>
-          <% if current_user.nil? %>
-            <%= link_to "Sign in", new_user_session_path %>
-          <% else %>
-            <%= link_to 'Sign out', destroy_user_session_path, method: :delete%>
-          <% end %>
-        </li>
-      </ul>
-      <ul class="side-nav" id="mobile-demo">
-        <li>
-          <%= link_to "About", "/pages/about" %>
-        </li>
-        <li>
-          <%= link_to "Contact", "http://rueckenwind.berlin/en/contact/", :target => "_blank" %>
-        </li>
-        <li>
-          <% if current_user.nil? %>
-            <%= link_to "Sign in", new_user_session_path %>
-          <% else %>
-            <%= link_to 'Sign out', destroy_user_session_path, method: :delete%>
-          <% end %>
-        </li>
-      </ul>
+  <header>
+    <nav class="light-green">
+      <div class="nav-wrapper">
+        <%= link_to image_tag("logo.png", :class => "rueckenwind_logo", :alt => "Rückenwind logo"), root_path, { :class=>"brand-logo center" } %>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li>
+            <%= link_to "About", "/pages/about" %>
+          </li>
+          <li>
+            <%= link_to "Contact", "http://rueckenwind.berlin/en/contact/", :target => "_blank" %>
+          </li>
+          <li>
+            <% if current_user.nil? %>
+              <%= link_to "Sign in", new_user_session_path %>
+            <% else %>
+              <%= link_to 'Sign out', destroy_user_session_path, method: :delete%>
+            <% end %>
+          </li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          <li>
+            <%= link_to "About", "/pages/about" %>
+          </li>
+          <li>
+            <%= link_to "Contact", "http://rueckenwind.berlin/en/contact/", :target => "_blank" %>
+          </li>
+          <li>
+            <% if current_user.nil? %>
+              <%= link_to "Sign in", new_user_session_path %>
+            <% else %>
+              <%= link_to 'Sign out', destroy_user_session_path, method: :delete%>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <p><%= flash[:notice] %></p>
+      <p><%= flash[:error] %></p>
+
+      <%= yield %>
+
     </div>
-  </nav>
-
-  <div class="container">
-
-    <p><%= flash[:notice] %></p>
-    <p><%= flash[:error] %></p>
-
-    <%= yield %>
-
-  </div>
+  </main>
 
   <footer class="page-footer light-green">
     <div class="container">
@@ -64,11 +69,13 @@
       </div>
     </div>
   </footer>
+
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
   <script>
    $(".button-collapse").sideNav();
   </script>
+
 </body>
 </html>
