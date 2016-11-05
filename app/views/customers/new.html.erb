@@ -3,13 +3,12 @@
 </div>
 <div class="row">
   <%= form_for @customer, :html => {:class => 'validate'} do |c| %>
-    <div class="input-field col s6 m6">
+    <div class="input-field col s6">
       <i class="material-icons prefix">account_circle</i>
       <%= c.text_field :first_name %>
       <%= c.label :first_name, "First name" %>
     </div>
-    <div class="input-field col s6 m6">
-
+    <div class="input-field col s6">
       <%= c.text_field :last_name %>
       <%= c.label :last_name, "Last name" %>
     </div>
