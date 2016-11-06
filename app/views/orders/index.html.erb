@@ -1,12 +1,13 @@
-<table class="striped light-green responsive-table">
+<table class="striped light-green lighten-2 responsive-table">
   <thead>
     <tr>
       <th>Customer</th>
       <th>Email</th>
       <th>Facebook</th>
-      <th>Registered</th>
-      <th>Invited</th>
-      <th>Number of bikes</th>
+      <th>Registered on</th>
+      <th>Invited?</th>
+      <th>Bikes ordered</th>
+      <th>Notes</th>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +19,7 @@
         <td><%= order.created_at.strftime("%d %b. %Y")%></td>
         <td><%= order.invited_yn %></td>
         <td><%= order.total_bikes %></td>
+        <td><%= order.notes %></td>
         <td><%= link_to "Edit", edit_order_path(order) %></td>
         <td><%= link_to "Delete", order, method: :delete, data: { confirm: "Are you sure?" } %>
         </td>
