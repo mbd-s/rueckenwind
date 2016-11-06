@@ -1,25 +1,26 @@
 <%= form_for @event, :html => {:class => 'validate'} do |e| %>
 
   <div class="row">
-    <div class="input-field col s4">
+    <div class="input-field col s12 m4">
       <i class="material-icons prefix">today</i>
       <%= e.text_field :date, class: "datepicker" %>
       <%= e.label :date %>
     </div>
-    <div class="input-field col s4">
+    <div class="input-field col s12 m4">
       <i class="material-icons prefix">query_builder</i>
-      <%= e.text_field :start_time %>
-      <%= e.label :start_time %>
+      <%= e.time_field :start_time %>
+      <%= e.label :start_time, class: "active" %>
+
     </div>
-    <div class="input-field col s4">
+    <div class="input-field col s12 m4">
       <i class="material-icons prefix">query_builder</i>
-      <%= e.text_field :end_time %>
-      <%= e.label :end_time %>
+      <%= e.time_field :end_time %>
+      <%= e.label :end_time, class: "active" %>
     </div>
   </div>
 
   <div class="submit_button waves-effect waves-light btn light-green">
-    <%= e.submit "Save"%>
+    <%= e.submit "Create event"%>
   </div>
 
 <% end %>
