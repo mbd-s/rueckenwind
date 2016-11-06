@@ -11,7 +11,7 @@
   <div class="row">
     <div class="input-field col s12">
       <%= f.email_field :email, autofocus: true %>
-      <%= f.label :email %><br />
+      <%= f.label :email %>
     </div>
   </div>
 
@@ -25,7 +25,7 @@
   <div class="row">
     <div class="input-field col s12">
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
-      <%= f.label :password_confirmation %><br />
+      <%= f.label :password_confirmation %>
     </div>
   </div>
 
@@ -33,7 +33,7 @@
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
-<br />
+<br>
 
 <% if current_user.nil? %>
   <%= render "devise/shared/links" %>

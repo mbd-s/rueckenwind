@@ -1,35 +1,43 @@
-<h2>Create a new user</h2>
+<div class="row">
+  <div class="col s12">
+    <h5>Create a new user</h5>
+  </div>
+</div>
 
 <%= form_for(@user, url: create_user_path) do |f| %>
-
-  <div class="input-field col s4">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.email_field :email, autofocus: true %>
+      <%= f.label :email %>
+    </div>
   </div>
 
-  <div class="input-field col s4">
-    <%= f.select :role, options_for_select({ "Admin" => "admin", "Organizer" => "organizer" }) %>
-    <%= f.label :role %>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.select :role, options_for_select({ "Admin" => "admin", "Organizer" => "organizer" }) %>
+      <%= f.label :role %>
+    </div>
   </div>
 
-  <div class="input-field col s4">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.password_field :password, autocomplete: "off" %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.label :password %>
+    </div>
+  </row>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      <%= f.label :password_confirmation %>
+    </div>
+  </row>
+
+  <div class="actions submit_button waves-effect waves-light btn light-green">
+    <%= f.submit "Save user" %>
   </div>
 
-  <div class="input-field col s4">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<% if current_user.nil? %>
-  <%= render "devise/shared/links" %>
 <% end %>
