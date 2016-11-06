@@ -16,7 +16,7 @@ class DonationsController < ApplicationController
       redirect_to root_path
     else
       flash[:error] = @donation.errors.full_messages.to_sentence
-      render :new
+      redirect_to new_donation_path
     end
   end
 
