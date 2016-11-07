@@ -54,25 +54,25 @@
   <main>
     <div class="container">
 
-    <% if notice %>
-      <script type="text/javascript">
-        Materialize.toast('<%= notice %>', 4000, 'indigo')
-      </script>
-    <% end %>
+      <% if notice %>
+        <script type="text/javascript">
+          Materialize.toast('<%= notice %>', 4000, 'blue')
+        </script>
+      <% end %>
 
-    <% if alert %>
-      <script type="text/javascript">
-        Materialize.toast('<%= alert %>', 4000, 'red-accent')
-      </script>
+      <% if alert %>
+        <script type="text/javascript">
+          Materialize.toast('<%= alert %>', 4000, 'red')
+        </script>
+      <% end %>
 
-
-    <% end %>
-
-
-    <p><%= flash[:error] %></p>
-
-
-
+      <% unless flash.empty? %>
+          <% flash.each do |key, value| %>
+            <div class="flash <%= key %>">
+              <%= value %>
+            </div>
+          <% end %>
+      <% end %>
 
       <%= yield %>
 

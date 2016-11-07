@@ -32,13 +32,19 @@ footer {
   margin-top: 40px;
 }
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
 main {
   flex: 1 0 auto;
 }
 .card-text {
-  font-size: 20px;
+  font-size: 25px;
+}
+.notice {
+  color: blue;
+}
+.error {
+  color: red;
 }
