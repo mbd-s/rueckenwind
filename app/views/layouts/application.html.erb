@@ -53,9 +53,24 @@
 
   <main>
     <div class="container">
+      
+    <!-- <% if notice %>
+      <script type="text/javascript">
+        Materialize.toast('<%= notice %>', 4000, 'indigo')
+      </script>
+    <% end %>
 
-      <p><%= flash[:notice] %></p>
-      <p><%= flash[:error] %></p>
+    <% if alert %>
+      <script type="text/javascript">
+        Materialize.toast('<%= alert %>', 4000, 'red-accent')
+      </script>
+    <% end %> -->
+
+    <span><%= flash[:notice] %></span>
+    <span><%= flash[:error] %></span>
+
+
+
 
       <%= yield %>
 

@@ -17,9 +17,7 @@
 //= require_tree .
 
 $(document).ready(function(){
-
   $('select').material_select();
-
   $('.datepicker').pickadate({
     min: new Date()
   });
