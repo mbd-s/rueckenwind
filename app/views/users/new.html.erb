@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col s12">
-    <h5>Create a new user</h5>
+    <h5>Create a new user.</h5>
   </div>
 </div>
 
@@ -22,12 +22,12 @@
   <div class="row">
     <div class="input-field col s12">
       <%= f.password_field :password, autocomplete: "off" %>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
       <%= f.label :password %>
+      <!-- <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br /> -->
     </div>
-  </row>
+  </div>
 
   <div class="row">
     <div class="input-field col s12">
@@ -37,7 +37,7 @@
   </row>
 
   <div class="actions submit_button waves-effect waves-light btn light-green">
-    <%= f.submit "Save user" %>
+    <%= f.submit "Save" %>
   </div>
 
 <% end %>
