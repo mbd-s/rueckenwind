@@ -19,4 +19,4 @@ a = User.create(
   updated_at: "2016-11-04 18:21:33",
   role: "admin"
 )
-ap "Just created #{User.count} users"
+puts "Just created #{User.count} users"
