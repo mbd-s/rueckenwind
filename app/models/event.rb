@@ -1,4 +1,7 @@
 class Event < ActiveRecord::Base
+  has_many :event_volunteers
+  has_many :users, through: :event_volunteers
+
   validates :date, :start_time, :end_time, presence: true
   validate :date_cannot_be_in_the_past, :end_time_must_be_after_start_time
 
@@ -15,4 +18,9 @@ class Event < ActiveRecord::Base
   def organizer
     User.find organizer_id
   end
+
+  def volunteer
+    User.find volunteer_id
+  end
+  
 end

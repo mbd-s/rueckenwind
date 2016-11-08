@@ -6,6 +6,7 @@
       <th>End time</th>
       <th>Date created</th>
       <th>Organizer</th>
+      <th>Volunteers</th>
     </tr>
   </thead>
   <tbody>
@@ -16,6 +17,7 @@
         <td><%= event.end_time.strftime("%I:%M %p") %></td>
         <td><%= event.created_at.strftime("%d %b. %Y") %></td>
         <td><%= event.organizer %></td>
+        <td><%= event.users.map{|u| u.name}.join(', ') %></td>
         <td><%= link_to "Edit", edit_event_path(event) %></td>
         <td><%= link_to "Delete", event, method: :delete, data: { confirm: "Are you sure?" } %>
         </td>

@@ -9,13 +9,14 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
-    @organizers = User.active_organizers
+    @organizers = User.admin_and_organizers
+    @volunteers = User.volunteers
   end
 
   def create
     @event = Event.new(event_params)
     if @event.save
-      flash[:notice] = "Event saved."
+      save_event_volunteers(@event, params[:volunteer_ids])
       redirect_to events_path
     else
       flash[:error] = @event.errors.full_messages.to_sentence
@@ -50,6 +51,12 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:date, :start_time, :end_time, :organizer_id)
+  end
+
+  def save_event_volunteers(event, volunteers)
+    volunteers.each do |v|
+      EventVolunteer.new(event_id: event.id, user_id: v).save
+    end
   end
 
 end

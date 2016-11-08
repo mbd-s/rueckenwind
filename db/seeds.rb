@@ -1,6 +1,8 @@
 User.destroy_all
 
 a = User.create(
+  first_name: "Seed",
+  last_name: "Admin",
   email: "a@a.a",
   password: "111111",
   reset_password_token: nil,

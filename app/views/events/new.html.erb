@@ -31,6 +31,14 @@
     </div>
   </div>
 
+  <div class="row">
+    <div class="input-field col s12">
+      <%= select_tag :volunteer_ids, options_from_collection_for_select(@volunteers, :id, :name ),
+        { :multiple => true }%>
+      <%= label_tag :volunteer_id %>
+    </div>
+  </div>
+
   <div class="submit_button waves-effect waves-light btn light-green">
     <%= e.submit "Create event"%>
   </div>
