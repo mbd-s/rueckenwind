@@ -29,7 +29,7 @@ module Rueckenwind
     config.permissions = {
       "admin" => {
         "orders": ["index", "show", "new", "create", "edit", "update", "destroy"],
-        "events": ["index", "show"],
+        "events": ["index", "show", "new", "create", "edit", "update", "destroy"],
         "donations": ["index", "show", "new", "create", "edit", "update", "destroy"],
         "invitations": ["index", "show", "new", "create", "edit", "update", "destroy"],
         "pickups": ["index", "show", "new", "create", "edit", "update", "destroy"],
