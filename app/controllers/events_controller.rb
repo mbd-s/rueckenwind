@@ -9,6 +9,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @organizers = User.active_organizers
   end
 
   def create
@@ -48,7 +49,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:date, :start_time, :end_time)
+    params.require(:event).permit(:date, :start_time, :end_time, :organizer_id)
   end
 
 end

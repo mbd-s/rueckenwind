@@ -1,21 +1,33 @@
 <%= form_for @event, :html => {:class => 'validate'} do |e| %>
 
   <div class="row">
-    <div class="input-field col s12 m4">
+    <div class="input-field col s6">
       <i class="material-icons prefix">today</i>
       <%= e.text_field :date, class: "datepicker" %>
       <%= e.label :date %>
     </div>
-    <div class="input-field col s12 m4">
-      <i class="material-icons prefix">query_builder</i>
-      <%= e.time_field :start_time %>
-      <%= e.label :start_time, class: "active" %>
+  </div>
 
-    </div>
-    <div class="input-field col s12 m4">
+  <div class="row">
+    <div class="input-field col s6">
       <i class="material-icons prefix">query_builder</i>
-      <%= e.time_field :end_time %>
-      <%= e.label :end_time, class: "active" %>
+      <%= e.time_select :start_time, ampm: true, ignore_date: true, minute_step: 15 %>
+      <%= e.label :start_time %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s6">
+      <i class="material-icons prefix">query_builder</i>
+      <%= e.time_select :end_time, ampm: true, ignore_date: true, minute_step: 15 %>
+      <%= e.label :end_time %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <%= e.select :organizer_id, options_from_collection_for_select(@organizers, :id, :name ) %>
+      <%= e.label :organizer_id %>
     </div>
   </div>
 

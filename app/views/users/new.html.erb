@@ -6,8 +6,19 @@
 
 <%= form_for(@user, url: create_user_path) do |f| %>
   <div class="row">
+    <div class="input-field col s6">
+      <%= f.text_field :first_name, autofocus: true %>
+      <%= f.label :first_name %>
+    </div>
+    <div class="input-field col s6">
+      <%= f.text_field :last_name %>
+      <%= f.label :last_name %>
+    </div>
+  </div>
+
+  <div class="row">
     <div class="input-field col s12">
-      <%= f.email_field :email, autofocus: true %>
+      <%= f.email_field :email %>
       <%= f.label :email %>
     </div>
   </div>
