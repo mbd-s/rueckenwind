@@ -11,7 +11,7 @@
   <div class="row">
     <div class="input-field col s6">
       <i class="material-icons prefix">query_builder</i>
-      <%= e.time_select :start_time, ampm: true, ignore_date: true, minute_step: 15 %>
+      <%= e.time_select :start_time, ignore_date: true, minute_step: 15 %>
       <%= e.label :start_time %>
     </div>
   </div>
@@ -19,7 +19,7 @@
   <div class="row">
     <div class="input-field col s6">
       <i class="material-icons prefix">query_builder</i>
-      <%= e.time_select :end_time, ampm: true, ignore_date: true, minute_step: 15 %>
+      <%= e.time_select :end_time, ignore_date: true, minute_step: 15 %>
       <%= e.label :end_time %>
     </div>
   </div>
