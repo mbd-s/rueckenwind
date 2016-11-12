@@ -13,17 +13,19 @@
  *= require_tree .
  *= require_self
  */
+
+@import "materialize/components/color";
+$primary-color: #75b843 !default;
+$secondary-color: #75b843 !default;
+$link-color: #75b843 !default;
+
 @import "materialize";
 
-a {
-  color: #75b843;
-}
 .rueckenwind_logo {
   padding: 13px;
   margin-left: 17px;
   max-height: 70px;
 }
-
 nav {
   height: 70px;
   line-height: 70px;
