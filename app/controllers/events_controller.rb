@@ -2,6 +2,7 @@ class EventsController < ApplicationController
 
   before_action :authenticate_user!
   before_action :authorize
+  before_action :set_event, only: [:edit, :update, :destroy, :add_customer, :save_customer]
 
   def index
     @events = Event.all
@@ -11,6 +12,7 @@ class EventsController < ApplicationController
     @event = Event.new
     @organizers = User.admin_and_organizers
     @volunteers = User.volunteers
+    @customers = Customer.all
   end
 
   def create
@@ -25,26 +27,33 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @event = Event.find(params[:id])
-    render :edit
   end
 
   def update
-    @event = Event.find(params[:id])
     if @event.update(event_params)
-      flash[:notice] = "Event updated."
-      redirect_to events_path
+      redirect_to events_path, notice: "Event updated."
     else
-      flash[:error] = @event.errors.full_messages.to_sentence
-      render :edit
+      render :edit, error: @event.errors.full_messages.to_sentence
     end
   end
 
   def destroy
-    @event = Event.find(params[:id])
     @event.destroy
-    flash[:notice] = "Event deleted."
-    redirect_to events_path
+    redirect_to events_path, notice: "Event deleted."
+  end
+
+  def add_customer
+    @orders = Order.order(created_at: :desc)
+  end
+
+  def save_customer
+    event_id = params[:id]
+    Order.where(event_id: event_id).update_all(event_id: nil)
+    params[:order_ids].each do |order_id|
+      Order.find(order_id).update(event_id: event_id)
+    end
+
+    redirect_to add_customer_event_url(@event), notice: "Event updated."
   end
 
   private
@@ -57,6 +66,10 @@ class EventsController < ApplicationController
     volunteers.each do |v|
       EventVolunteer.new(event_id: event.id, user_id: v).save
     end
+  end
+
+  def set_event
+    @event = Event.find(params[:id])
   end
 
 end

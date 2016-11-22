@@ -1,0 +1,37 @@
+<%= form_for @event, url: save_customer_event_path, :html => {:class => 'validate', method: :post} do |e| %>
+  <table>
+    <thead>
+      <th>Customer</th>
+      <th>Men's bikes</th>
+      <th>Women's bikes</th>
+      <th>Kids' bikes</th>
+      <th>Order status</th>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <td>
+            <input type="checkbox" id="<%=order.id%>" name="order_ids[]" value="<%=order.id%>" <%= checked(order.event_id)%> <%= disabled(@event.id, order.event_id)%> />
+            <label for="<%=order.id%>"><%= order.customer.name %></label>
+          </td>
+          <td>
+            <%= order.mens_bikes%>
+          </td>
+          <td>
+            <%= order.womens_bikes%>
+          </td>
+          <td>
+            <%= order.kids_bikes%>
+          </td>
+          <td>
+            <%= order.status%>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+  <div class="submit_button waves-effect waves-light btn">
+    <%= e.submit "Update event"%>
+  </div>
+<% end %>

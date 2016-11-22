@@ -3,9 +3,8 @@
     <tr>
       <th>Customer</th>
       <th>Email</th>
-      <th>Facebook</th>
-      <th>Registered on</th>
-      <th>Invited?</th>
+      <th>Registered on:</th>
+      <th>Order status</th>
       <th>Bikes ordered</th>
       <th>Notes</th>
     </tr>
@@ -15,9 +14,8 @@
       <tr>
         <td><%= order.customer.first_name %> <%= order.customer.last_name %></td>
         <td><%= order.customer.email %></td>
-        <td><%= order.customer.facebook %></td>
-        <td><%= order.created_at.strftime("%d %b. %Y")%></td>
-        <td><%= order.invited_yn %></td>
+        <td><%= order.created_at.strftime("%d.%m.%Y")%></td>
+        <td><%= order.status %></td>
         <td><%= order.total_bikes %></td>
         <td><%= order.notes %></td>
         <td><%= link_to "Edit", edit_order_path(order) %></td>

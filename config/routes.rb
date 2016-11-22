@@ -7,7 +7,12 @@ Rails.application.routes.draw do
   resources :orders
   resources :donations
   resources :donors
-  resources :events
+  resources :events do
+    member do
+      get "add_customer"
+      post "save_customer"
+    end
+  end
 
   root to: 'welcome#index'
 
