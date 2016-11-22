@@ -21,7 +21,7 @@ class CustomersController < ApplicationController
   end
 
   def confirm
-    @customer = Customer.find(params[:token])
+    @customer = Customer.find_by_confirm_token(params[:token])
     if @customer.nil?
       flash[:error] = "We couldn't find your information. Please try again."
       redirect_to new_customer_path

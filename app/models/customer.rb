@@ -5,6 +5,8 @@ class Customer < ActiveRecord::Base
 
   validates :first_name, :last_name, :email, presence: true
 
+  before_create :generate_token
+
   def name
     "#{first_name} #{last_name}"
   end
@@ -12,5 +14,8 @@ class Customer < ActiveRecord::Base
   def to_s
     name
   end
-  
+
+  def generate_token
+    self.confirm_token = SecureRandom.hex(20)
+  end
 end
