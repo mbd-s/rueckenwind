@@ -48,12 +48,18 @@ class EventsController < ApplicationController
 
   def save_customer
     event_id = params[:id]
+    order_ids = params[:order_ids]
     Order.where(event_id: event_id).update_all(event_id: nil)
-    params[:order_ids].each do |order_id|
-      Order.find(order_id).update(event_id: event_id)
+
+    unless order_ids.nil?
+      order_ids.each do |order_id|
+        order = Order.find(order_id)
+        order.event_id = event_id
+        order.save
+      end
     end
 
-    redirect_to add_customer_event_url(@event), notice: "Event updated."
+    redirect_to add_customer_event_path(@event), notice: "Event updated."
   end
 
   private
