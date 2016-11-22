@@ -38,6 +38,8 @@ class EventsController < ApplicationController
   end
 
   def destroy
+    event_id = params[:id]
+    Order.where(event_id: event_id).update_all(event_id: nil)
     @event.destroy
     redirect_to events_path, notice: "Event deleted."
   end
