@@ -12,8 +12,7 @@ class DonationsController < ApplicationController
     @donation = Donation.new(donation_params)
     @donation.donor_id = session[:current_donor_id]
     if @donation.save
-      flash[:success] = "Donation successfully submitted."
-      redirect_to root_path
+      redirect_to root_path, notice: "Donation successfully submitted."
     else
       flash[:error] = @donation.errors.full_messages.to_sentence
       redirect_to new_donation_path

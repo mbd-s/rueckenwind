@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
       action = params[:action]
 
       if !Rails.application.config.permissions[current_user.role][controller.to_sym].include?(action)
-        flash[:error] = "Ooops. Not allowed."
+        flash[:error] = "Sorry, you don't have permission to go there."
         redirect_to root_path
       end
     end

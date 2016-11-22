@@ -12,8 +12,7 @@ class CustomersController < ApplicationController
     @customer = Customer.new(customer_params)
     if @customer.save
       CustomerMailer.email_confirmation(@customer).deliver
-      flash[:notice] = "We've emailed you to confirm your email address. Please click the link to complete your order."
-      redirect_to "/pages/confirmation"
+      redirect_to "/pages/confirmation", notice: "We've sent you a confirmation email. Please click the link to complete your order."
     else
       flash[:error] = @customer.errors.full_messages.to_sentence
       redirect_to new_customer_path
@@ -27,8 +26,7 @@ class CustomersController < ApplicationController
       redirect_to new_customer_path
     else
       session[:current_customer_id] = @customer.id
-      flash[:notice] = "Thanks for confirming your email address. You're now able to complete your order."
-      redirect_to new_order_path
+      redirect_to new_order_path, notice: "Thanks for confirming your email address. You can now complete your order."
     end
   end
 

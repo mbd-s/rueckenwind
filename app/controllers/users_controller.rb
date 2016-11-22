@@ -9,9 +9,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-        redirect_to root_path, notice: "User succesfully created!"
+      redirect_to root_path, notice: "A confirmation email has been sent to the new user."
     else
-        render :new
+      flash[:error] = @user.errors.full_messages.to_sentence
+      redirect_to new_user_path
     end
   end
 

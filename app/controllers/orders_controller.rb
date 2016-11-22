@@ -9,8 +9,7 @@ class OrdersController < ApplicationController
 
   def new
     if session[:current_customer_id].nil?
-      flash[:error] = "Please enter your contact information first."
-      redirect_to new_customer_path
+      redirect_to new_customer_path, error: "Please enter your contact information first."
     else
       @order = Order.new
     end
@@ -21,11 +20,9 @@ class OrdersController < ApplicationController
     @order.customer_id = session[:current_customer_id]
     if @order.save
       CustomerMailer.order_confirmation(@order.customer).deliver
-      flash[:notice] = "Thank you! We've e-mailed you a summary of your order."
-      redirect_to "/pages/confirmation"
+      redirect_to "/pages/confirmation", notice: "Thanks for your order!"
     else
-      flash[:error] = @order.errors.full_messages.to_sentence
-      redirect_to new_order_path
+      redirect_to new_order_path, error: @order.errors.full_messages.to_sentence
     end
   end
 
@@ -37,8 +34,7 @@ class OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     if @order.update(order_params)
-      flash[:notice] = "Order successfully updated."
-      redirect_to orders_path
+      redirect_to orders_path, notice: "Order updated."
     else
       flash[:error] = @order.errors.full_messages.to_sentence
       render :edit
@@ -48,8 +44,7 @@ class OrdersController < ApplicationController
   def destroy
     @order = Order.find(params[:id])
     @order.destroy
-    flash[:notice] = "Order successfully deleted."
-    redirect_to orders_path
+    redirect_to orders_path, notice: "Order deleted."
   end
 
   private

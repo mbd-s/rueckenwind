@@ -19,7 +19,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     if @event.save
       save_event_volunteers(@event, params[:volunteer_ids])
-      redirect_to events_path
+      redirect_to events_path, notice: "Event created."
     else
       flash[:error] = @event.errors.full_messages.to_sentence
       redirect_to new_event_path
@@ -33,7 +33,8 @@ class EventsController < ApplicationController
     if @event.update(event_params)
       redirect_to events_path, notice: "Event updated."
     else
-      render :edit, error: @event.errors.full_messages.to_sentence
+      flash[:error] = @event.errors.full_messages.to_sentence
+      render :edit
     end
   end
 
