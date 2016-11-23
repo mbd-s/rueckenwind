@@ -1,5 +1,21 @@
+<table class="striped responsive-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Role</th>
+      <th>Email</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+<tbody>
 <% @users.each do |user| %>
-  <div>
-    <%= user.name  %>
-  </div>
+  <tr>
+    <td><%= user.name  %></td>
+    <td><%= user.role %></td>
+    <td><%= user.email %>   </td>
+    <td> Edit | <%= link_to "Delete", user, method: :delete, data: { confirm: "Are you sure?"} %> </td>
+  </tr>
 <% end %>
+  </tbody>
+</table>
