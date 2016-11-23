@@ -14,7 +14,9 @@
     <td><%= user.name  %></td>
     <td><%= user.role %></td>
     <td><%= user.email %>   </td>
-    <td> Edit | <%= link_to "Delete", user, method: :delete, data: { confirm: "Are you sure?"} %> </td>
+    <% if current_user.id != user.id %>
+      <td> Edit | <%= link_to "Delete", user, method: :delete, data: { confirm: "Are you sure?"} %> </td>
+    <% end %>
   </tr>
 <% end %>
   </tbody>
