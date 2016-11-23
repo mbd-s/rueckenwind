@@ -8,16 +8,20 @@
     </tr>
   </thead>
 
-<tbody>
-<% @users.each do |user| %>
-  <tr>
-    <td><%= user.name  %></td>
-    <td><%= user.role %></td>
-    <td><%= user.email %>   </td>
-    <% if current_user.id != user.id %>
-      <td> Edit | <%= link_to "Delete", user, method: :delete, data: { confirm: "Are you sure?"} %> </td>
-    <% end %>
-  </tr>
-<% end %>
+  <tbody>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.name  %></td>
+      <td><%= user.role %></td>
+      <td><%= user.email %>   </td>
+      <% if current_user.id != user.id %>
+        <td> Edit | <%= link_to "Delete", user, method: :delete, data: { confirm: "Are you sure?"} %> </td>
+      <% end %>
+    </tr>
+  <% end %>
   </tbody>
 </table>
+
+<%= link_to new_user_path, class: "btn-floating btn-large waves-effect waves-light" do %>
+    <i class="material-icons">add</i>
+<% end %>
