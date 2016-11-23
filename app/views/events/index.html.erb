@@ -14,8 +14,8 @@
     <% @events.reverse_each do |event| %>
       <tr>
         <td><%= event.date.strftime("%d %b. %Y") %></td>
-        <td><%= event.start_time.strftime("%I:%M %p") %></td>
-        <td><%= event.end_time.strftime("%I:%M %p") %></td>
+        <td><%= event.start_time.strftime("%H:%M") %></td>
+        <td><%= event.end_time.strftime("%H:%M") %></td>
         <td><%= event.created_at.strftime("%d %b. %Y") %></td>
         <td><%= event.organizer %></td>
         <td><%= event.users.map{|u| u.name}.join(', ') %></td>
