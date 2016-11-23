@@ -2,6 +2,10 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :authorize
 
+  def index
+    @users = User.all
+  end
+
   def new
     @user = User.new
   end
