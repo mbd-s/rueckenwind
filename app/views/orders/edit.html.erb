@@ -1,19 +1,19 @@
-<%= form_for @order do |o| %>
+<%= form_for @order do |f| %>
   <div class="row">
     <div class="input-field col s12 l4">
-      <%= o.number_field :mens_bikes, :min => '0' %>
-      <%= o.label :mens_bikes %>
+      <%= f.number_field :mens_bikes, :min => '0' %>
+      <%= f.label :mens_bikes %>
     </div>
     <div class="input-field col s12 l4">
-      <%= o.number_field :womens_bikes, :min => '0' %>
-      <%= o.label :womens_bikes %>
+      <%= f.number_field :womens_bikes, :min => '0' %>
+      <%= f.label :womens_bikes %>
     </div>
     <div class="input-field col s12 l4">
-      <%= o.number_field :kids_bikes, :min => '0' %>
-      <%= o.label :kids_bikes %>
+      <%= f.number_field :kids_bikes, :min => '0' %>
+      <%= f.label :kids_bikes %>
     </div>
   </div>
   <div class="submit_button waves-effect waves-light btn">
-    <%= o.submit "Save"%>
+    <%= f.submit "Save"%>
   </div>
 <% end %>

@@ -1,33 +1,33 @@
-<%= form_for @event, :html => {:class => 'validate'} do |e| %>
+<%= form_for @event, :html => {:class => 'validate'} do |f| %>
 
   <div class="row">
     <div class="input-field col s6">
       <i class="material-icons prefix">today</i>
-      <%= e.text_field :date, class: "datepicker" %>
-      <%= e.label :date %>
+      <%= f.text_field :date, class: "datepicker" %>
+      <%= f.label :date %>
     </div>
   </div>
 
   <div class="row">
     <div class="input-field col s6">
       <i class="material-icons prefix">query_builder</i>
-      <%= e.time_select :start_time, ignore_date: true, minute_step: 15 %>
-      <%= e.label :start_time %>
+      <%= f.time_select :start_time, ignore_date: true, minute_step: 15 %>
+      <%= f.label :start_time %>
     </div>
   </div>
 
   <div class="row">
     <div class="input-field col s6">
       <i class="material-icons prefix">query_builder</i>
-      <%= e.time_select :end_time, ignore_date: true, minute_step: 15 %>
-      <%= e.label :end_time %>
+      <%= f.time_select :end_time, ignore_date: true, minute_step: 15 %>
+      <%= f.label :end_time %>
     </div>
   </div>
 
   <div class="row">
     <div class="input-field col s12">
-      <%= e.select :organizer_id, options_from_collection_for_select(@organizers, :id, :name ) %>
-      <%= e.label :organizer_id %>
+      <%= f.select :organizer_id, options_from_collection_for_select(@organizers, :id, :name ) %>
+      <%= f.label :organizer_id %>
     </div>
   </div>
 
@@ -40,7 +40,7 @@
   </div>
 
   <div class="submit_button waves-effect waves-light btn">
-    <%= e.submit "Create event"%>
+    <%= f.submit "Create event"%>
   </div>
 
 <% end %>
