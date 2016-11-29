@@ -72,8 +72,10 @@ class EventsController < ApplicationController
   end
 
   def save_event_volunteers(event, volunteers)
-    volunteers.each do |v|
-      EventVolunteer.new(event_id: event.id, user_id: v).save
+    unless volunteers.nil?
+      volunteers.each do |v|
+        EventVolunteer.new(event_id: event.id, user_id: v).save
+      end
     end
   end
 
