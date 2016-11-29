@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_params, if: :devise_controller?
 
   def authorize
+    ap params
+    ap "sanity check"
     unless current_user.nil?
       controller = params[:controller]
       action = params[:action]

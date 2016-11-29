@@ -36,7 +36,7 @@ module Rueckenwind
         "invitations": ["index", "show", "new", "create", "edit", "update", "destroy"],
         "pickups": ["index", "show", "new", "create", "edit", "update", "destroy"],
         "welcome": ["index"],
-        "users": ["index", "new", "create", "destroy"]
+        "users": ["index", "new", "create", "edit", "update", "destroy"]
       },
       "organizer" => {
         "orders": ["index", "show", "new", "create", "edit", "update", "destroy"],
