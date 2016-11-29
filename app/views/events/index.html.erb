@@ -18,7 +18,7 @@
         <td><%= event.end_time.strftime("%H:%M") %></td>
         <td><%= event.created_at.strftime("%d %b. %Y") %></td>
         <td><%= event.organizer %></td>
-        <td><%= event.users.map{|u| u.name}.join(', ') %></td>
+        <td><%= event.users.map{|u| u.display_experience }.join(', ') %></td>
         <td>
           <%= link_to "Edit", edit_event_path(event) %>
           |

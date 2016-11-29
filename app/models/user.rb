@@ -9,8 +9,14 @@ class User < ActiveRecord::Base
   scope :admin_and_organizers, -> { where("role IN (?) AND confirmed_at IS NOT ?", ["admin", "organizer"], nil) }
   scope :volunteers, -> { where("role = ? AND confirmed_at IS NOT ?", "volunteer", nil) }
 
+  enum experience: [:basic, :intermediate, :pro]
+
   def name
     "#{first_name} #{last_name}"
+  end
+
+  def display_experience
+    "#{name} (#{experience})"
   end
 
   def to_s
