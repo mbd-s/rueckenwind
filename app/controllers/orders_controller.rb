@@ -18,6 +18,7 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.customer_id = session[:current_customer_id]
+    @order.status = "ordered"
     if @order.save
       CustomerMailer.order_confirmation(@order.customer).deliver
       redirect_to "/pages/confirmation", notice: "Thanks for your order!"
