@@ -11,17 +11,13 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.turbolinks
-//= require jquery_ujs
-//= require materialize-sprockets
 //= require turbolinks
-
+//= require materialize-sprockets
 //= require_tree .
 
-$(document).ready(function(){
+$(document).on('turbolinks:load', function() {
   $('select').material_select();
   $('.datepicker').pickadate({
     min: new Date()
   });
-
 });
