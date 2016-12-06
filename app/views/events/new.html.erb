@@ -1,7 +1,7 @@
 <%= form_for @event, :html => {:class => 'validate'} do |f| %>
 
   <div class="row">
-    <div class="input-field col s6">
+    <div class="input-field col s12">
       <i class="material-icons prefix">today</i>
       <%= f.text_field :date, class: "datepicker" %>
       <%= f.label :date %>
@@ -14,13 +14,18 @@
       <%= f.time_select :start_time, ignore_date: true, minute_step: 15 %>
       <%= f.label :start_time %>
     </div>
-  </div>
 
-  <div class="row">
     <div class="input-field col s6">
       <i class="material-icons prefix">query_builder</i>
       <%= f.time_select :end_time, ignore_date: true, minute_step: 15 %>
       <%= f.label :end_time %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s4">
+      <%= f.number_field :volunteer_spaces, :value => '0', :min => '0' %>
+      <%= f.label :volunteer_spaces %>
     </div>
   </div>
 

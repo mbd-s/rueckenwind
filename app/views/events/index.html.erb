@@ -6,6 +6,7 @@
       <th>End time</th>
       <th>Date created</th>
       <th>Organizer</th>
+      <th>Volunteer spaces</th>
       <th>Volunteers</th>
       <th>Actions</th>
     </tr>
@@ -18,7 +19,8 @@
         <td><%= event.end_time.strftime("%H:%M") %></td>
         <td><%= event.created_at.strftime("%d %b. %Y") %></td>
         <td><%= event.organizer %></td>
-        <td><%= event.users.map{|u| u.display_experience }.join(', ') %></td>
+        <td><%= event.volunteer_spaces %></td>
+        <td><%= event.users.count %></td>
         <td>
           <%= link_to "Edit", edit_event_path(event) %>
           |
