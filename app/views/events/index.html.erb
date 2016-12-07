@@ -4,7 +4,6 @@
       <th>Date</th>
       <th>Start time</th>
       <th>End time</th>
-      <th>Date created</th>
       <th>Organizer</th>
       <th>Volunteer spaces</th>
       <th>Volunteers needed</th>
@@ -17,7 +16,6 @@
         <td><%= event.date.strftime("%d %b. %Y") %></td>
         <td><%= event.start_time.strftime("%H:%M") %></td>
         <td><%= event.end_time.strftime("%H:%M") %></td>
-        <td><%= event.created_at.strftime("%d %b. %Y") %></td>
         <td><%= event.organizer %></td>
         <td><%= event.volunteer_spaces %></td>
         <td><%= event.open? %></td>
