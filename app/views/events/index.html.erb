@@ -7,7 +7,7 @@
       <th>Date created</th>
       <th>Organizer</th>
       <th>Volunteer spaces</th>
-      <th>Volunteers</th>
+      <th>Volunteers needed</th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -20,7 +20,7 @@
         <td><%= event.created_at.strftime("%d %b. %Y") %></td>
         <td><%= event.organizer %></td>
         <td><%= event.volunteer_spaces %></td>
-        <td><%= event.users.count %></td>
+        <td><%= event.open? %></td>
         <td>
           <%= link_to "Edit", edit_event_path(event) %>
           |
