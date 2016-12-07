@@ -1,3 +1,27 @@
 <span>
   Welcome, <%= current_user.name %>
 </span>
+
+<div>
+  Here are the upcoming events you can sign up for:
+</div>
+
+<div class="row">
+  <% @events.reverse_each do |e| %>
+    <% if e.open? && e.date >= Date.today %>
+      <div class="card-panel grey lighten-3 col s12 m4">
+        <p>
+          <strong>Date: </strong><%= e.date.strftime("%d. %B %Y") %>
+        </p>
+        <p>
+          <strong>Starts: </strong><%= e.start_time.strftime("%H:%M") %>
+        </p>
+        <p>
+          <strong>Ends: </strong><%= e.end_time.strftime("%H:%M") %>
+        </p>
+        <p>
+          <strong>Available volunteer spots: </strong><%= e.spaces_available %>
+        </p>
+      </div>
+    <% end %>
+  <% end %>

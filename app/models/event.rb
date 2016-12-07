@@ -33,7 +33,11 @@ class Event < ActiveRecord::Base
   end
 
   def open?
-    users.count < volunteer_spaces ? "#{volunteer_spaces - users.count}" : 'Full'
+    users.count < volunteer_spaces
+  end
+
+  def spaces_available
+    open? ? "#{volunteer_spaces - users.count}" : 'Full'
   end
 
 end
