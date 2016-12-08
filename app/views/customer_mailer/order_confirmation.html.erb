@@ -1,14 +1,15 @@
 <p>
-  Dear <%= @customer.first_name %>,
+  Dear <%= @order.customer.first_name %>,
 </p>
-  We've succesfully received your order.
+  We've received your order.
 <p>
   Here's what happens next:
 </p>
 <p>
-  We'll email you as soon as we have an open space in a workshop. If you're free,
-  you'll confirm and come in at the appointed time to build your bike (or bikes).
-  If you're busy, it's no problem. Just tell us and we'll invite you to the next
+  We'll email you as soon as we have an open space in a workshop. If you're free
+  on that date, you'll confirm and come in at the appointed time to build your bike.
+  If you're busy, it's no problem. Just let us know and we'll invite you to the next
   available workshop.
 </p>
-<p>In the meantime, let us know if you have any questions or concerns.</p>
+<p>In the meantime, <a href="http://rueckenwind.berlin/en/contact/" target="_blank">
+  contact us</a> if you have any questions or concerns.</p>

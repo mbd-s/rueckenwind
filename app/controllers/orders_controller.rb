@@ -20,7 +20,7 @@ class OrdersController < ApplicationController
     @order.customer_id = session[:current_customer_id]
     @order.status = "ordered"
     if @order.save
-      CustomerMailer.order_confirmation(@order.customer).deliver
+      CustomerMailer.order_confirmation(@order).deliver_now
       redirect_to "/pages/confirmation", notice: "Thanks for your order!"
     else
       redirect_to new_order_path, error: @order.errors.full_messages.to_sentence
