@@ -1,10 +1,12 @@
-class CreateVolunteers < ActiveRecord::Migration
+class DropVolunteers < ActiveRecord::Migration
   def change
-    create_table :volunteers do |t|
+    drop_table :volunteers do |t|
       t.string :first_name
       t.string :last_name
       t.string :email
       t.string :role
+      t.string :phone
+      t.integer :experience
 
       t.timestamps null: false
     end
