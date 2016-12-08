@@ -1,6 +1,6 @@
-class CreateInvitations < ActiveRecord::Migration
+class DropInvitations < ActiveRecord::Migration
   def change
-    create_table :invitations do |t|
+    drop_table :invitations do |t|
       t.date :date_sent
       t.boolean :sent
 

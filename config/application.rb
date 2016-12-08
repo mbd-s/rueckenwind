@@ -33,7 +33,6 @@ module Rueckenwind
         "orders": ["index", "show", "new", "create", "edit", "update", "destroy"],
         "events": ["index", "show", "new", "create", "edit", "update", "destroy", "add_customer", "save_customer"],
         "donations": ["index", "show", "new", "create", "edit", "update", "destroy"],
-        "invitations": ["index", "show", "new", "create", "edit", "update", "destroy"],
         "pickups": ["index", "show", "new", "create", "edit", "update", "destroy"],
         "welcome": ["index"],
         "users": ["index", "new", "create", "edit", "update", "destroy"]
@@ -42,7 +41,6 @@ module Rueckenwind
         "orders": ["index", "show", "new", "create", "edit", "update", "destroy"],
         "events": ["index", "show", "new", "create", "edit", "update", "destroy", "add_customer", "save_customer"],
         "donations": ["index", "show", "new", "create", "edit", "update", "destroy"],
-        "invitations": ["index", "show", "new", "create", "edit", "update", "destroy"],
         "pickups": ["index", "show", "new", "create", "edit", "update", "destroy"],
         "users": ["index"]
       },
@@ -50,7 +48,6 @@ module Rueckenwind
         "orders": [],
         "events": ["show"],
         "donations": [],
-        "invitations": [],
         "pickups": [],
         "users": []
       }
