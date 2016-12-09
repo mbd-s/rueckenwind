@@ -29,7 +29,7 @@
     </div>
     <div class="input-field col s12 l4">
       <%= f.select :status, options_for_select({ "Ordered" => "ordered", "Invited" => "invited",
-        "Confirmed" => "confirmed", "Declined" => "declined", "Completed" => "completed", "Inactive" => "inactive" }) %>
+        "Confirmed" => "confirmed", "Declined" => "declined", "Completed" => "completed", "Inactive" => "inactive" }, @order.status) %>
       <%= f.label :status   %>
     </div>
   </div>
