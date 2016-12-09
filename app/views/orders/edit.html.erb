@@ -1,19 +1,31 @@
+<div>
+  <strong><%= @order.customer.name %></strong>
+</div>
+<div>
+  <strong>Order placed:</strong> <%= @order.created_at.strftime("%d. %B %Y") %>
+</div>
+<br>
 <%= form_for @order do |f| %>
   <div class="row">
     <div class="input-field col s12 l4">
-      <%= f.number_field :mens_bikes, :min => '0' %>
-      <%= f.label :mens_bikes %>
+      <%= f.number_field :mens_bikes, autofocus: true, :min => '0' %>
+      <%= f.label "Men's bikes" %>
     </div>
     <div class="input-field col s12 l4">
       <%= f.number_field :womens_bikes, :min => '0' %>
-      <%= f.label :womens_bikes %>
+      <%= f.label "Women's bikes" %>
     </div>
     <div class="input-field col s12 l4">
       <%= f.number_field :kids_bikes, :min => '0' %>
-      <%= f.label :kids_bikes %>
+      <%= f.label "Kids' bikes" %>
+    </div>
+    <div class="input-field col s12 l4">
+      <%= f.select :status, options_for_select({ "Ordered" => "ordered", "Invited" => "invited",
+        "Confirmed" => "confirmed", "Declined" => "declined", "Completed" => "completed", "Inactive" => "inactive" }) %>
+      <%= f.label :status   %>
     </div>
   </div>
   <div class="submit_button waves-effect waves-light btn">
-    <%= f.submit "Save"%>
+    <%= f.submit "Save changes"%>
   </div>
 <% end %>

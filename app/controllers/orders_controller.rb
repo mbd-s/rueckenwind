@@ -51,7 +51,8 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:mens_bikes, :womens_bikes, :kids_bikes, :notes, :invitation_sent, :confirmed, :customer_id)
+    params.require(:order).permit(:mens_bikes, :womens_bikes, :kids_bikes, :notes,
+    :status, :customer_id, :event_id)
   end
 
 end
