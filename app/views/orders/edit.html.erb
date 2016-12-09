@@ -2,8 +2,16 @@
   <strong><%= @order.customer.name %></strong>
 </div>
 <div>
+  <strong><%= @order.customer.email %></strong>
+</div>
+<div>
   <strong>Order placed:</strong> <%= @order.created_at.strftime("%d. %B %Y") %>
 </div>
+<% unless @order.notes.empty? %>
+<div>
+  <strong>Notes:</strong> <%= @order.notes %>
+</div>
+<% end %>
 <br>
 <%= form_for @order do |f| %>
   <div class="row">
