@@ -27,6 +27,10 @@
       <%= f.number_field :volunteer_spaces, :value => '0', :min => '0' %>
       <%= f.label :volunteer_spaces %>
     </div>
+    <div class="input-field col s4">
+      <%= f.number_field :order_spaces, :value => '0', :min => '0' %>
+      <%= f.label :order_spaces %>
+    </div>
   </div>
 
   <div class="row">
@@ -40,7 +44,7 @@
     <div class="input-field col s12">
       <%= select_tag :volunteer_ids, options_from_collection_for_select(@volunteers, :id, :name ),
         { :multiple => true }%>
-      <%= label_tag :volunteer_id %>
+      <%= label_tag :volunteer_ids %>
     </div>
   </div>
 

@@ -31,7 +31,7 @@ module Rueckenwind
     config.permissions = {
       "admin" => {
         "orders": ["index", "show", "new", "create", "edit", "update", "destroy"],
-        "events": ["index", "show", "new", "create", "edit", "update", "destroy", "add_customer", "save_customer"],
+        "events": ["index", "show", "new", "create", "edit", "update", "destroy", "add_customer", "save_customer", "send_invitations"],
         "donations": ["index", "show", "new", "create", "edit", "update", "destroy"],
         "pickups": ["index", "show", "new", "create", "edit", "update", "destroy"],
         "welcome": ["index"],
@@ -39,7 +39,7 @@ module Rueckenwind
       },
       "organizer" => {
         "orders": ["index", "show", "new", "create", "edit", "update", "destroy"],
-        "events": ["index", "show", "new", "create", "edit", "update", "destroy", "add_customer", "save_customer"],
+        "events": ["index", "show", "new", "create", "edit", "update", "destroy", "add_customer", "save_customer", "send_invitations"],
         "donations": ["index", "show", "new", "create", "edit", "update", "destroy"],
         "pickups": ["index", "show", "new", "create", "edit", "update", "destroy"],
         "users": ["index"]

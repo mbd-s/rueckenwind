@@ -1,7 +1,8 @@
 class OrdersController < ApplicationController
 
   before_action :authenticate_user!, :except => [:new, :create, :show]
-  before_action :authorize
+  before_action :authorize, except: [:confirm]
+  before_action :set_order, only: [:confirm, :edit, :update, :destroy]
 
   def index
     @orders = Order.all
@@ -28,12 +29,10 @@ class OrdersController < ApplicationController
   end
 
   def edit
-    @order = Order.find(params[:id])
     render :edit
   end
 
   def update
-    @order = Order.find(params[:id])
     if @order.update(order_params)
       redirect_to orders_path, notice: "Order updated."
     else
@@ -43,9 +42,13 @@ class OrdersController < ApplicationController
   end
 
   def destroy
-    @order = Order.find(params[:id])
     @order.destroy
     redirect_to orders_path, notice: "Order deleted."
+  end
+
+  def confirm
+    @order.confirmed
+    redirect_to confirmation_page_url("confirmation"), notice: "Your spot for the event has been reserved."
   end
 
   private
@@ -53,6 +56,10 @@ class OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:mens_bikes, :womens_bikes, :kids_bikes, :notes,
     :status, :customer_id, :event_id)
+  end
+
+  def set_order
+    @order = Order.find(params[:id])
   end
 
 end

@@ -12,4 +12,11 @@ class CustomerMailer < ApplicationMailer
     mail(to: @order.customer.email, subject: 'Thanks for your order!')
   end
 
+  def invitation(event, order)
+    @confirmation_url = confirm_invitation_order_url(order)
+    @event = event
+    @order = order
+    mail(to: @order.customer.email, subject: 'Invitation from Rückenwind')
+  end
+
 end

@@ -5,8 +5,10 @@ class Event < ActiveRecord::Base
   has_many :customers, through: :orders
 
   validates :date, :start_time, :end_time, presence: true
-  validate :date_cannot_be_in_the_past, :end_time_must_be_after_start_time,
-    :volunteer_spaces_cannot_be_less_than_zero
+  validate :date_cannot_be_in_the_past, :end_time_must_be_after_start_time
+
+  validates_numericality_of :volunteer_spaces, greater_than: 0
+  validates_numericality_of :order_spaces, greater_than: 0
 
   def date_cannot_be_in_the_past
     errors.add(:date, "can't be in the past.") if
@@ -26,12 +28,6 @@ class Event < ActiveRecord::Base
     User.find volunteer_id
   end
 
-  def volunteer_spaces_cannot_be_less_than_zero
-    if volunteer_spaces < 0
-      errors[:base] << "You can't have less than zero volunteers."
-    end
-  end
-
   def open?
     users.count < volunteer_spaces
   end
@@ -40,4 +36,8 @@ class Event < ActiveRecord::Base
     open? ? "#{volunteer_spaces - users.count}" : 'Full'
   end
 
+  def order_spaces_available
+    confirmed_orders = Order.where(status: 'confirmed', event_id: id)
+    order_spaces - confirmed_orders.count
+  end
 end

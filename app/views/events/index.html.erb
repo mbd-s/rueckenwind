@@ -25,6 +25,8 @@
           <%= link_to "Add Customer", add_customer_event_path(event) %>
           |
           <%= link_to "Delete", event, method: :delete, data: { confirm: "Are you sure?" } %>
+          |
+           <%= link_to "Send Invitations", send_invitations_event_path(event) %>
         </td>
       </tr>
     <% end %>

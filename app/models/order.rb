@@ -18,4 +18,14 @@ class Order < ActiveRecord::Base
     mens_bikes.to_i + womens_bikes.to_i + kids_bikes.to_i
   end
 
+  def confirmed
+    self.status = "confirmed"
+    save
+  end
+
+  def invited
+    self.status = "invited"
+    save
+  end
+
 end

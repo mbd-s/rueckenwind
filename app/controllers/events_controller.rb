@@ -2,7 +2,8 @@ class EventsController < ApplicationController
 
   before_action :authenticate_user!
   before_action :authorize
-  before_action :set_event, only: [:edit, :update, :destroy, :add_customer, :save_customer]
+  before_action :set_event, only: [:edit, :update, :destroy, :add_customer, 
+    :save_customer, :send_invitations]
 
   def index
     @events = Event.all
@@ -65,10 +66,25 @@ class EventsController < ApplicationController
     redirect_to add_customer_event_path(@event), notice: "Event updated."
   end
 
+  def send_invitations
+    orders = Order.where(status: 'ordered').order("id ASC").limit(@event.order_spaces_available)
+
+    if orders.size == 0
+      redirect_to events_url, notice: 'No orders to complete events with.'
+    else
+      orders.each do |order|
+        CustomerMailer.invitation(@event, order).deliver_now
+        order.invited
+      end
+
+      redirect_to events_url, notice: "Invited #{orders.size} customers."
+    end
+  end
+
   private
 
   def event_params
-    params.require(:event).permit(:date, :start_time, :end_time, :organizer_id, :volunteer_spaces)
+    params.require(:event).permit(:date, :start_time, :end_time, :organizer_id, :volunteer_spaces, :order_spaces)
   end
 
   def save_event_volunteers(event, volunteers)
