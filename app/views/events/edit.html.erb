@@ -5,15 +5,27 @@
       <%= f.text_field :date, class: "datepicker" %>
       <%= f.label :date %>
     </div>
-    <div class="input-field col l3">
-      <i class="material-icons prefix">query_builder</i>
-      <%= f.time_select :start_time, ignore_date: true, minute_step: 15 %>
-      <%= f.label :start_time %>
+    <div class="row">
+      <div class="input-field col l3">
+        <i class="material-icons prefix">query_builder</i>
+        <%= f.time_select :start_time, ignore_date: true, minute_step: 15 %>
+        <%= f.label :start_time %>
+      </div>
+      <div class="input-field col l3">
+        <i class="material-icons prefix">query_builder</i>
+        <%= f.time_select :end_time, ignore_date: true, minute_step: 15 %>
+        <%= f.label :end_time %>
+      </div>
     </div>
-    <div class="input-field col l3">
-      <i class="material-icons prefix">query_builder</i>
-      <%= f.time_select :end_time, ignore_date: true, minute_step: 15 %>
-      <%= f.label :end_time %>
+    <div class="row">
+      <div class="input-field col s4">
+        <%= f.number_field :volunteer_spaces, :min => '0' %>
+        <%= f.label :volunteer_spaces %>
+      </div>
+      <div class="input-field col s4">
+        <%= f.number_field :order_spaces, :min => '0' %>
+        <%= f.label "Customer spaces" %>
+      </div>
     </div>
     <div class="submit_button waves-effect waves-light btn right">
       <%= f.submit "Save Changes"%>

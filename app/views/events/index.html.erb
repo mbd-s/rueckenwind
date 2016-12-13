@@ -7,9 +7,7 @@
       <th>Organizer</th>
       <th>Volunteer spaces</th>
       <th>Volunteers needed</th>
-      <th>
-        Customer spaces
-      </th>
+      <th>Customer spaces</th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -22,9 +20,7 @@
         <td><%= event.organizer %></td>
         <td><%= event.volunteer_spaces %></td>
         <td><%= event.spaces_available %></td>
-        <td>
-          <%= event.order_spaces %>
-        </td>
+        <td><%= event.order_spaces %></td>
         <td>
           <%= link_to "Add Customers", add_customer_event_path(event) %>
           |

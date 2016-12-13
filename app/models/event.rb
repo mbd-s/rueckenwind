@@ -5,7 +5,8 @@ class Event < ActiveRecord::Base
   has_many :customers, through: :orders
 
   validates :date, :start_time, :end_time, presence: true
-  validate :date_cannot_be_in_the_past, :end_time_must_be_after_start_time
+  validate :end_time_must_be_after_start_time
+  validate :date_cannot_be_in_the_past, on: :create
 
   validates_numericality_of :volunteer_spaces, greater_than: 0
   validates_numericality_of :order_spaces, greater_than: 0
