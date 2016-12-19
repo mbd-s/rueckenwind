@@ -2,7 +2,7 @@ class EventsController < ApplicationController
 
   before_action :authenticate_user!
   before_action :authorize
-  before_action :set_event, only: [:edit, :update, :destroy, :add_customer, 
+  before_action :set_event, only: [:edit, :update, :destroy, :add_customer,
     :save_customer, :send_invitations]
 
   def index
@@ -70,11 +70,11 @@ class EventsController < ApplicationController
     orders = Order.where(status: 'ordered').order("id ASC").limit(@event.order_spaces_available)
 
     if orders.size == 0
-      redirect_to events_url, notice: 'No orders to complete events with.'
+      redirect_to events_url, notice: 'There are no spaces left for this event.'
     else
       orders.each do |order|
         CustomerMailer.invitation(@event, order).deliver_now
-        order.invited
+        order.invited @event
       end
 
       redirect_to events_url, notice: "Invited #{orders.size} customers."
@@ -84,7 +84,8 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:date, :start_time, :end_time, :organizer_id, :volunteer_spaces, :order_spaces)
+    params.require(:event).permit(:date, :start_time, :end_time, :organizer_id,
+      :volunteer_spaces, :order_spaces)
   end
 
   def save_event_volunteers(event, volunteers)

@@ -29,16 +29,23 @@ class Event < ActiveRecord::Base
     User.find volunteer_id
   end
 
-  def open?
+  def still_open_to_volunteers?
     users.count < volunteer_spaces
   end
 
-  def spaces_available
-    open? ? "#{volunteer_spaces - users.count}" : 'Full'
+  def volunteer_spaces_available
+    still_open_to_volunteers? ? "#{volunteer_spaces - users.count}" : 'Full'
+  end
+
+  def invited_orders
+    Order.where(status: [1,2], event_id: id).count
+  end
+
+  def confirmed_orders
+    Order.where(status: 2, event_id: id).count
   end
 
   def order_spaces_available
-    confirmed_orders = Order.where(status: 'confirmed', event_id: id)
-    order_spaces - confirmed_orders.count
+    order_spaces - confirmed_orders
   end
 end

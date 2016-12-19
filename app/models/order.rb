@@ -23,8 +23,9 @@ class Order < ActiveRecord::Base
     save
   end
 
-  def invited
+  def invited event
     self.status = "invited"
+    self.event_id = event.id
     save
   end
 
