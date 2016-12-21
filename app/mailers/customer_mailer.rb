@@ -14,6 +14,7 @@ class CustomerMailer < ApplicationMailer
 
   def invitation(event, order)
     @confirmation_url = confirm_invitation_order_url(order)
+    @decline_url = decline_invitation_order_url(order)
     @event = event
     @order = order
     mail(to: @order.customer.email, subject: 'Invitation from Rückenwind')

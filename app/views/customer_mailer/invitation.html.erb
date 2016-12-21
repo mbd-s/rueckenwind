@@ -1,11 +1,12 @@
 <p>
   Dear <%= @order.customer.first_name %>,
 <p>
-  Good news: We have an open space in an upcoming workshop. 
+  Good news: We have an open space in an upcoming workshop on <%= @event.date.strftime("%d. %B %Y") %>,
+   from <%= @event.start_time.strftime("%H:%M") %> to <%= @event.end_time.strftime("%H:%M") %>.
 
-  If you're free to join, click <a href="<%=@confirmation_url%>" target="_blank">here</a> to confirm.
-  If you're busy on that date, click here and we'll invite you to the next
-  available workshop.
+  If you're free to join, click <a href="<%= @confirmation_url %>">here</a> to confirm.
+  If you're busy on that date, click <a href="<%= @decline_url %>">here</a>
+  and we'll invite you to the next available workshop.
   If you don't need a bike anymore, click here and we'll remove you from the list.
 </p>
 <p>Feel free to <a href="http://rueckenwind.berlin/en/contact/" target="_blank">

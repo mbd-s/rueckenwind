@@ -6,7 +6,7 @@ class Order < ActiveRecord::Base
 
   accepts_nested_attributes_for :customer
 
-  enum status: [:ordered, :invited, :confirmed, :declined, :completed, :inactive]
+  enum status: [:ordered, :invited, :confirmed, :canceled, :completed, :inactive]
 
   def bikes_ordered_cannot_be_zero
     if mens_bikes == 0 && womens_bikes == 0 && kids_bikes == 0
@@ -26,6 +26,12 @@ class Order < ActiveRecord::Base
   def invited event
     self.status = "invited"
     self.event_id = event.id
+    save
+  end
+
+  def declined
+    self.status = "ordered"
+    self.event_id = nil
     save
   end
 

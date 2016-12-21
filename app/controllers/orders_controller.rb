@@ -1,8 +1,8 @@
 class OrdersController < ApplicationController
 
   before_action :authenticate_user!, :except => [:new, :create, :show]
-  before_action :authorize, except: [:confirm]
-  before_action :set_order, only: [:confirm, :edit, :update, :destroy]
+  before_action :authorize, except: [:confirm, :decline]
+  before_action :set_order, only: [:confirm, :decline, :edit, :update, :destroy]
 
   def index
     @orders = Order.all
@@ -48,7 +48,12 @@ class OrdersController < ApplicationController
 
   def confirm
     @order.confirmed
-    redirect_to confirmation_page_url("confirmation"), notice: "Your spot for the event has been reserved."
+    redirect_to confirmation_page_url("confirmation"), notice: "Your spot for the workshop has been reserved."
+  end
+
+  def decline
+    @order.declined
+    redirect_to confirmation_page_url("confirmation"), notice: "Thanks for letting us know. We'll invite you to the next open workshop."
   end
 
   private
