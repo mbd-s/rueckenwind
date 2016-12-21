@@ -8,7 +8,7 @@
       <th>Volunteer spaces</th>
       <th>Volunteers still needed</th>
       <th>Customer spaces</th>
-      <th>Customers invited</th>
+      <th>Customers who haven't responded</th>
       <th>Customers confirmed</th>
       <th>Actions</th>
     </tr>
@@ -26,9 +26,9 @@
         <td><%= event.invited_orders %></td>
         <td><%= event.confirmed_orders %></td>
         <td>
-          <%= link_to "Add/edit customers", add_customer_event_path(event) %>
+          <%= link_to "Add customers manually", add_customer_event_path(event) %>
           |
-          <%= link_to "Send invitations", send_invitations_event_path(event) %>
+          <%= link_to "Send invitations for remaining spaces", send_invitations_event_path(event) %>
           |
           <%= link_to "Edit event", edit_event_path(event) %>
           |
