@@ -35,4 +35,10 @@ class Order < ActiveRecord::Base
     save
   end
 
+  def canceled
+    self.status = "canceled"
+    self.event_id = nil
+    save
+  end
+  
 end

@@ -1,8 +1,8 @@
 class OrdersController < ApplicationController
 
   before_action :authenticate_user!, :except => [:new, :create, :show]
-  before_action :authorize, except: [:confirm, :decline]
-  before_action :set_order, only: [:confirm, :decline, :edit, :update, :destroy]
+  before_action :authorize, except: [:confirm, :decline, :cancel]
+  before_action :set_order, only: [:confirm, :decline, :cancel, :edit, :update, :destroy]
 
   def index
     @orders = Order.all
@@ -54,6 +54,11 @@ class OrdersController < ApplicationController
   def decline
     @order.declined
     redirect_to confirmation_page_url("confirmation"), notice: "Thanks for letting us know. We'll invite you to the next open workshop."
+  end
+
+  def cancel
+    @order.canceled
+    redirect_to confirmation_page_url("confirmation"), notice: "You've been removed from our system. If you change your mind, just sign up again and place a new order."
   end
 
   private

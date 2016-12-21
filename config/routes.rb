@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     member do
       get 'confirm', as: :confirm_invitation
       get 'decline', as: :decline_invitation
+      get 'cancel', as: :cancel
     end
   end
   resources :donations
