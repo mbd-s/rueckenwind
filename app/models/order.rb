@@ -18,20 +18,19 @@ class Order < ActiveRecord::Base
     mens_bikes.to_i + womens_bikes.to_i + kids_bikes.to_i
   end
 
-  def confirmed
-    self.status = "confirmed"
-    save
-  end
-
   def invited event
     self.status = "invited"
     self.event_id = event.id
     save
   end
 
+  def confirmed
+    self.status = "confirmed"
+    save
+  end
+
   def declined
     self.status = "ordered"
-    self.event_id = nil
     save
   end
 
@@ -40,5 +39,5 @@ class Order < ActiveRecord::Base
     self.event_id = nil
     save
   end
-  
+
 end
