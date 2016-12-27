@@ -1,8 +1,6 @@
 language: ruby
 rvm:
 - 2.3.3
-- jruby
-- rbx-2
 script:
 - bundle exec rake unit
 - bundle exec rake integration
