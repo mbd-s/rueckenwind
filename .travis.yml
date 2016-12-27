@@ -1,0 +1,18 @@
+language: ruby
+rvm:
+- 2.3.3
+- jruby
+- rbx-2
+script:
+- bundle exec rake unit
+- bundle exec rake integration
+- bundle exec rake functional
+deploy:
+  provider: heroku
+  api_key:
+    secure: o0yTBcrdM+cbHQ7d/XdNTCk9Z8eMR5cTA2bzYpDLRz3Az0YW2WyPBaVxGRoXcoVe13rdd3JplLx5E4B53opriaHCfBGx7WVaencqEzBP680Vqup5j0llgUZGDKCuzMHzcDaoUWGrEmEHh/L0DIf5ZSOczkIF5JCnsILuN4drdmE1uddDGxKfREL/BRvDHc4fcKvtnSS+75DMUObamW86G6w14v6MzPKQJItIpY9r0yvWpaMMMyoqxLK+kr8CVizO6FvXz+uwKBxYDQM/hClOIZ9B0LBr4+GuwwIIUdmGVL3rCDyrNBAZdFwuTVfQvY7BqogFRlQiMqzcYkkaYY6WopQTcyNyLhto9xpLZv9b2MOhkeGvJZWL1i7WrqW1cmiTA/zuu8VXFYPqYU76mc9f7m1aOS6rlIDsXBH+HWPx2SOe/rsbsS2LDNjT4Rm9bOm9B+4pDtg3kR/vP+tiikuVJRYFbJbnNKxNaQqr5S47bGzXiNX5jClWDh+E04A+wTG+G7Wtqgrn61yKKMHxjEOHE1eMsJ1nwPydR2vmmycxyXqPnxGHvmCeXf1g6E6X6OYxlI109R7AxaojVdCMWDo6rOc8a3bgaC4NBFh47Y4K9JNpDB06dkWZOfzLN4Lm3MgY+zJagUaZBH/2KP6mEmpUItZs+F2DF6MRdNuOCIQ7LtU=
+  strategy: git
+  app: rueckenwind
+  on:
+    repo: mbd-s/rueckenwind
+  run: "rake db:migrate"
