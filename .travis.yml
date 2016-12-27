@@ -4,6 +4,7 @@ rvm:
 services:
   - postgresql
 before_script:
+  - rm /usr/local/var/postgres/postmaster.pid
   - psql -c 'create database travis_ci_test;' -U postgres
 script:
 - bundle exec rake unit
