@@ -1,6 +1,10 @@
 language: ruby
 rvm:
 - 2.3.3
+services:
+  - postgresql
+before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
 script:
 - bundle exec rake unit
 - bundle exec rake integration
@@ -14,3 +18,8 @@ deploy:
   on:
     repo: mbd-s/rueckenwind
   run: "rake db:migrate"
+test:
+  adapter: postgresql
+  database: travis_ci_test
+addons:
+  postgresql: "9.5"
