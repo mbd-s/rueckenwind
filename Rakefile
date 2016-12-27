@@ -7,7 +7,6 @@ Rails.application.load_tasks
 
 begin
   require 'rake'
-  require 'rspec/core/rake_task'
 
   RSpec::Core::RakeTask.new(:unit) do |t|
     t.pattern = Dir.glob('spec/unit/*/*_spec.rb')
