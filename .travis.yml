@@ -4,8 +4,7 @@ rvm:
 services:
   - postgresql
 before_script:
-  - rm /usr/local/var/postgres/postmaster.pid
-  - psql -c 'create database travis_ci_test;' -U postgres
+  - psql -c 'create database rueckenwind_test;' -U postgres
 script:
 - bundle exec rake unit
 - bundle exec rake integration
@@ -21,6 +20,6 @@ deploy:
   run: "rake db:migrate"
 test:
   adapter: postgresql
-  database: travis_ci_test
+  database: rueckenwind_test
 addons:
-  postgresql: "9.5"
+  postgresql: "9.4"
