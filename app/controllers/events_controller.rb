@@ -67,7 +67,10 @@ class EventsController < ApplicationController
   end
 
   def send_invitations
-    orders = Order.where(status: 'ordered').where.not(event_id: @event.id).order("id ASC").limit(@event.order_spaces_available)
+    orders = Order.where(status: 'ordered')
+      .where("declined_events @> '{?}'", @event.id)
+      .order("id ASC")
+      .limit(@event.order_spaces_available)
 
     if orders.size == 0
       redirect_to events_url, notice: 'There are no spaces left for this event.'

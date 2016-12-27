@@ -65,7 +65,7 @@ class OrdersController < ApplicationController
 
   def order_params
     params.require(:order).permit(:mens_bikes, :womens_bikes, :kids_bikes, :notes,
-    :status, :customer_id, :event_id)
+    :status, :customer_id, :event_id, :declined_events)
   end
 
   def set_order

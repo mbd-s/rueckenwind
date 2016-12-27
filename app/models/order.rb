@@ -31,6 +31,8 @@ class Order < ActiveRecord::Base
 
   def declined
     self.status = "ordered"
+    self.declined_events.push(event_id)
+    self.event_id = nil
     save
   end
 
