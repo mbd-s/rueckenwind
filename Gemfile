@@ -40,6 +40,7 @@ group :development, :test do
   gem 'byebug'
   gem 'awesome_print'
   gem 'rspec-rails', '~> 3.5'
+  gem 'shoulda', '~> 3.5'
   gem 'factory_girl_rails'
 end
 
