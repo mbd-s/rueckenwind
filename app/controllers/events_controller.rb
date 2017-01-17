@@ -84,6 +84,16 @@ class EventsController < ApplicationController
     end
   end
 
+  def add_volunteer
+    event_id = params[:id]
+    new_volunteer = EventVolunteer.new(event_id: event_id, user_id: current_user.id)
+    if new_volunteer.save
+      redirect_to root_url, notice: 'Signed up for event.'
+    else
+      redirect_to root_url, alert: new_volunteer.errors.full_messages.to_sentence
+    end
+  end
+
   private
 
   def event_params

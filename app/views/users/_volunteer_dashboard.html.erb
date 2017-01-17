@@ -22,6 +22,11 @@
         <p>
           <strong>Available volunteer spots: </strong><%= e.volunteer_spaces_available %>
         </p>
+        <% unless current_user.signed_up_for?(e) %>
+          <div class="submit_button waves-effect waves-light btn">
+            <%= link_to "Sign up", add_volunteer_event_path(e) %>
+          </div>
+        <% end %>
       </div>
     <% end %>
   <% end %>

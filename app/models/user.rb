@@ -23,4 +23,8 @@ class User < ActiveRecord::Base
     name
   end
 
+  def signed_up_for?(event)
+    EventVolunteer.exists?(event_id: event.id, user_id: id)
+  end
+
 end

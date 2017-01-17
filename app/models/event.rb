@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  has_many :event_volunteers
+  has_many :event_volunteers, dependent: :delete_all
   has_many :users, through: :event_volunteers
   has_many :orders
   has_many :customers, through: :orders

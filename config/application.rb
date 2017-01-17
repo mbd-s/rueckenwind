@@ -46,7 +46,7 @@ module Rueckenwind
       },
       "volunteer" => {
         "orders": [],
-        "events": ["show"],
+        "events": ["show", "add_volunteer"],
         "donations": [],
         "pickups": [],
         "users": []
