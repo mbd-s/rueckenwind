@@ -20,4 +20,24 @@ describe Event do
   it { should validate_numericality_of :volunteer_spaces }
   it { should validate_numericality_of :order_spaces }
 
+  describe '#order_spaces_available' do
+    it 'calculates the number of order spaces available' do
+      event = create :event, order_spaces: 3
+
+      allow(event).to receive(:confirmed_orders).and_return(1)
+
+      expect(event.order_spaces_available).to eq 2
+    end
+  end
+
+  describe '#confirmed_orders' do
+    it 'returns only orders that have been confirmed' do
+      event = create :event
+
+      create_list :order, 2, event_id: event.id, status: Event::CONFIRMED
+      create :order, event_id: event.id, status: Event::INVITED
+
+      expect(event.confirmed_orders).to eq 2
+    end
+  end
 end
