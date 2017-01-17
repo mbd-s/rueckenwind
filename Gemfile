@@ -44,6 +44,7 @@ end
 
 # group :test do
   gem 'rspec-rails', '~> 3.5'
+  gem 'rspec-mocks', '3.5.0'
   gem 'shoulda', '~> 3.5'
   gem 'factory_girl_rails'
 # end
