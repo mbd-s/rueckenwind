@@ -3,6 +3,10 @@ require 'rails_helper'
 describe Customer do
   let(:customer) { FactoryGirl.build :customer }
 
+  it 'has a valid factory' do
+    expect(customer).to be_valid
+  end
+
   it { should have_many :orders}
   it { should have_many :events}
   it { should have_many(:events).through(:orders) }

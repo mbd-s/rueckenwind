@@ -5,5 +5,6 @@ FactoryGirl.define do
     email { Faker::Internet.email }
     role "volunteer"
     experience 1
+    password { Faker::Internet.password }
   end
 end

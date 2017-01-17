@@ -3,6 +3,10 @@ require 'rails_helper'
 describe Event do
   let(:event) { FactoryGirl.build :event }
 
+  it 'has a valid factory' do
+    expect(event).to be_valid
+  end
+
   it { should have_many :event_volunteers }
   it { should have_many :orders }
 

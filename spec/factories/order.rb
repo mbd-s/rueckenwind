@@ -5,5 +5,6 @@ FactoryGirl.define do
     womens_bikes 1
     kids_bikes 2
     notes "thanks"
+    customer
   end
 end
