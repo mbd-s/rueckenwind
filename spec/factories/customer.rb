@@ -7,8 +7,6 @@ FactoryGirl.define do
     has_donated false
     signed_up false
     wants_to_be_mechanic false
-    created_at Time.now
-    updated_at Time.now
     email_confirmed true
     confirm_token "oajsodfj5"
   end

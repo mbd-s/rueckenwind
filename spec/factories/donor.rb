@@ -4,7 +4,5 @@ FactoryGirl.define do
     last_name { Faker::Name.last_name }
     email { Faker::Internet.email }
     phone { Faker::PhoneNumber.phone_number }
-    created_at Time.now
-    updated_at Time.now
   end
 end
