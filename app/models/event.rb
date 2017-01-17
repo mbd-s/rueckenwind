@@ -1,4 +1,7 @@
 class Event < ActiveRecord::Base
+  INVITED = 1
+  CONFIRMED = 2
+
   has_many :event_volunteers, dependent: :delete_all
   has_many :users, through: :event_volunteers
   has_many :orders
@@ -38,11 +41,11 @@ class Event < ActiveRecord::Base
   end
 
   def invited_orders
-    Order.where(status: 1, event_id: id).count
+    Order.where(status: INVITED, event_id: id).count
   end
 
   def confirmed_orders
-    Order.where(status: 2, event_id: id).count
+    orders.where(status: CONFIRMED).count
   end
 
   def order_spaces_available
