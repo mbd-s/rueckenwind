@@ -41,7 +41,7 @@ class Event < ActiveRecord::Base
   end
 
   def invited_orders
-    Order.where(status: INVITED, event_id: id).count
+    orders.where(status: INVITED).count
   end
 
   def confirmed_orders
