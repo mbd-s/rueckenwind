@@ -17,7 +17,7 @@ Rails.application.routes.draw do
       get 'add_customer'
       post 'save_customer'
       get 'send_invitations'
-      get 'add_volunteer' # events/:id/add_volunteer
+      get 'add_volunteer'
     end
   end
 
