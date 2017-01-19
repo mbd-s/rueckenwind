@@ -40,4 +40,16 @@ describe Event do
       expect(event.confirmed_orders).to eq 2
     end
   end
+
+  describe '#invited_orders' do
+    it 'returns only orders that have been invited' do
+      event = create :event
+
+      create_list :order, 2, event_id: event.id, status: Event::INVITED
+      create :order, event_id: event.id, status: Event::CONFIRMED
+
+      expect(event.invited_orders).to eq 2
+    end
+  end
+
 end
