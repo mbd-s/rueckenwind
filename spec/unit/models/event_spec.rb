@@ -52,4 +52,15 @@ describe Event do
     end
   end
 
+  xdescribe '#still_open_to_volunteers?' do
+    it 'returns true if an event has open spaces for volunteers' do
+      event = create :event, volunteer_spaces: 2
+
+      create :user
+      create :event_volunteer, role: "volunteer", event_id: event.id, user_id: user.id
+
+      expect(users.count < event.volunteer_spaces).to eq true
+    end
+  end
+
 end
