@@ -23,11 +23,6 @@
       <%= c.email_field :email %>
       <%= c.label :email, "Email" %>
     </div>
-    <div class="input-field col s12 m6">
-      <i class="fa fa-facebook prefix"></i>
-      <%= c.url_field :facebook %>
-      <%= c.label :facebook, "Facebook \(optional\)" %>
-    </div>
   </div>
 
   <div class="row">
@@ -37,6 +32,14 @@
       <%= c.label :phone, "Phone \(optional\)" %>
     </div>
   </div>
+
+  <div>
+    If you don't have an email address or prefer to register in person, you can
+    call us at 030 64448044, visit our workshop at <a href="http://rueckenwind.berlin/kontakt/"
+    target="_blank">Lenaustraße 3, 12047 Berlin</a> or write us a message on <a href="https://www.facebook.com/rueckenwind.fahrraeder/"
+    target="_blank">Facebook</a>.
+  </div>
+  <br />
 
   <div class="submit_button waves-effect waves-light btn">
     <%= c.submit "Submit" %>
