@@ -51,3 +51,16 @@ main {
 .error {
   color: red;
 }
+
+.prefix ~ .select-wrapper {
+  display: inline-block !important;
+  width: 20% !important;
+}
+
+.prefix ~ .select-wrapper:nth-child(3) {
+  margin-left: 1rem !important;
+}
+
+.timepicker input {
+  text-align: center;
+}

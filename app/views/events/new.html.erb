@@ -8,19 +8,19 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="input-field col s6">
+  <div class="row timepicker">
+    <div class="input-field col m6">
       <i class="material-icons prefix">query_builder</i>
-      <%= f.time_select :start_time, ignore_date: true, minute_step: 15 %>
+      <%= f.time_select :start_time, ignore_date: true, minute_step: 15, class: 'center' %>
       <%= f.label :start_time %>
     </div>
 
-    <div class="input-field col s6">
-      <i class="material-icons prefix">query_builder</i>
-      <%= f.time_select :end_time, ignore_date: true, minute_step: 15 %>
-      <%= f.label :end_time %>
+      <div class="input-field col m6">
+        <i class="material-icons prefix">query_builder</i>
+        <%= f.time_select :end_time, ignore_date: true, minute_step: 15, class: 'center' %>
+        <%= f.label :end_time %>
+      </div>
     </div>
-  </div>
 
   <div class="row">
     <div class="input-field col s4">
