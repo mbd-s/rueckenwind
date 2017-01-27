@@ -1,15 +1,19 @@
-<p>
-  Dear <%= @order.customer.first_name %>,
-</p>
-  We've received your order for <%= @order.total_bikes %> bikes.
-<p>
-  Here's what happens next:
-</p>
-<p>
-  We'll email you as soon as we have an open space in a workshop. If you're free
-  on that date, you'll confirm and come in at the appointed time to build your bike.
-  If you're busy, it's no problem. Just let us know and we'll invite you to the next
-  available workshop.
-</p>
-<p>In the meantime, <a href="http://rueckenwind.berlin/en/contact/" target="_blank">
-  contact us</a> if you have any questions or concerns.</p>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+<div style="background-color:#75b843">
+  <%= image_tag attachments['logo.png'].url %>
+</div>
+<div style="font-family:Roboto">
+  <p>Dear <%= @order.customer.first_name %>,</p>
+  <p>We've received your order for <%= @order.total_bikes %> bikes.</p>
+  <p>Here's what happens next:</p>
+  <p>We'll email you as soon as we have an open space in a workshop. If you're free
+    on that date, you'll confirm and come in at the appointed time to build your bike.
+    If you're busy, it's no problem. Just let us know and we'll invite you to the next
+    available workshop.</p>
+  <p>In the meantime, <a href="http://rueckenwind.berlin/en/contact/" target="_blank">
+    contact us</a> if you have any questions or concerns.</p>
+  <p>Sincerely,<br>
+    Rückenwind</p>
+</div>

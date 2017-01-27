@@ -1,27 +1,23 @@
-<p>
-  Dear <%= @order.customer.first_name %>,
-</p>
-<p>
-  Good news: We have an open space in an upcoming workshop on <%= @event.date.strftime("%d. %B %Y") %>,
-   from <%= @event.start_time.strftime("%H:%M") %> to <%= @event.end_time.strftime("%H:%M") %>.
-</p>
-<p>
-  If you're free to join, click <a href="<%= @confirmation_url %>">here</a> to confirm.
-</p>
-<p>
-  If you're busy on that date, click <a href="<%= @decline_url %>">here</a>
-    and we'll invite you to the next available workshop.
-</p>
-<p>
-  If you don't want a bike anymore, click <a href="<%= @cancel_url %>">here</a>
-   and we'll remove you from the list.
-</p>
-
-<p>
-  Feel free to <a href="http://rueckenwind.berlin/en/contact/" target="_blank">
-  contact us</a> if you have any questions or concerns.
-</p>
-<p>
-  Sincerely,<br>
-  Rückenwind
-</p>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+<div style="background-color:#75b843">
+  <%= image_tag attachments['logo.png'].url %>
+</div>
+<div style="font-family:Roboto">
+  <p>Dear <%= @order.customer.first_name %>,</p>
+  <p>Good news: We have an open space in an upcoming workshop on
+    <%= @event.date.strftime("%d. %B %Y") %>, from
+    <%= @event.start_time.strftime("%H:%M") %> to
+    <%= @event.end_time.strftime("%H:%M") %>.</p>
+  <p>If you're free to join, click <a href="<%= @confirmation_url %>">here</a>
+    to confirm.</p>
+  <p>If you're busy on that date, click <a href="<%= @decline_url %>">here</a>and
+    we'll invite you to the next available workshop.</p>
+  <p>If you don't want a bike anymore, click <a href="<%= @cancel_url %>">here</a>
+    and we'll remove you from the list.</p>
+  <p>Feel free to <a href="http://rueckenwind.berlin/en/contact/" target="_blank">
+    contact us</a> if you have any questions or concerns.</p>
+  <p>Sincerely,<br>
+    Rückenwind</p>
+</div>
