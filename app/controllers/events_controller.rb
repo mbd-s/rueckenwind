@@ -2,11 +2,17 @@ class EventsController < ApplicationController
 
   before_action :authenticate_user!
   before_action :authorize
-  before_action :set_event, only: [:edit, :update, :destroy, :add_customer,
+  before_action :set_event, only: [:edit, :show, :update, :destroy, :add_customer,
     :save_customer, :send_invitations]
 
   def index
     @events = Event.all
+  end
+
+  def show
+    @orders = Order.where(event_id: @event.id)
+    volunteer_ids = EventVolunteer.where(event_id: @event.id).map {|ev| ev.user_id}
+    @volunteers = User.where(id: volunteer_ids)
   end
 
   def new

@@ -1,0 +1,66 @@
+<div class="row">
+
+  <div>
+    <i class="material-icons prefix">today</i>
+    <%= @event.date.strftime("%d. %B %Y") %>
+  </div>
+
+  <div>
+    <i class="material-icons prefix">query_builder</i>
+    <%= @event.start_time.strftime("%H:%M") %> - <%= @event.end_time.strftime("%H:%M") %>
+  </div>
+
+  <div>
+    <i class="material-icons prefix">assignment_ind</i>
+    <strong>Organizer:</strong> <%= @event.organizer.name %>
+  </div>
+
+  <table class="striped responsive-table">
+    <caption>Volunteers</caption>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Role</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @volunteers.each do |volunteer| %>
+        <tr>
+          <td><%= volunteer.name %></td>
+          <td><%= volunteer.role %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <table class="striped responsive-table">
+    <caption>Orders</caption>
+    <thead>
+      <tr>
+        <th>Customer name</th>
+        <th>Men's bikes</th>
+        <th>Women's bikes</th>
+        <th>Kids' bikes</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <td><%= order.customer.name %></td>
+          <td><%= order.mens_bikes %> </td>
+          <td><%= order.womens_bikes %> </td>
+          <td><%= order.kids_bikes %> </td>
+          <td><%= order.notes %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div>
+    <%= link_to "Edit", edit_event_path(@event) %>
+  </div>
+
+</div>

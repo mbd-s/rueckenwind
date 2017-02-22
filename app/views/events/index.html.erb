@@ -28,11 +28,13 @@
         <td>
           <%= link_to "Add customers manually", add_customer_event_path(event) %>
           |
-          <%= link_to "Send invitations for remaining spaces", send_invitations_event_path(event) %>
+          <%= link_to "Send invitations", send_invitations_event_path(event) %>
           |
-          <%= link_to "Edit event", edit_event_path(event) %>
+          <%= link_to "Show", event_path(event) %>
           |
-          <%= link_to "Delete event", event, method: :delete, data: { confirm: "Are you sure?" } %>
+          <%= link_to "Edit", edit_event_path(event) %>
+          |
+          <%= link_to "Delete", event, method: :delete, data: { confirm: "Are you sure?" } %>
         </td>
       </tr>
     <% end %>
