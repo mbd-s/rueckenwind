@@ -4,32 +4,32 @@
   </div>
 </div>
 
-<%= form_for @customer do |c| %>
+<%= form_for @customer do |f| %>
   <div class="row">
     <div class="input-field col s6">
       <i class="material-icons prefix">account_circle</i>
-      <%= c.text_field :first_name, autofocus: true %>
-      <%= c.label :first_name, "First name" %>
+      <%= f.text_field :first_name, autofocus: true %>
+      <%= f.label :first_name, "First name" %>
     </div>
     <div class="input-field col s6">
-      <%= c.text_field :last_name %>
-      <%= c.label :last_name, "Last name" %>
+      <%= f.text_field :last_name %>
+      <%= f.label :last_name, "Last name" %>
     </div>
   </div>
 
   <div class="row">
     <div class="input-field col s12 m6">
       <i class="material-icons prefix">email</i>
-      <%= c.email_field :email %>
-      <%= c.label :email, "Email" %>
+      <%= f.email_field :email %>
+      <%= f.label :email, "Email" %>
     </div>
   </div>
 
   <div class="row">
     <div class="input-field col s12 m6">
       <i class="material-icons prefix">phone</i>
-      <%= c.telephone_field :phone %>
-      <%= c.label :phone, "Phone \(optional\)" %>
+      <%= f.telephone_field :phone %>
+      <%= f.label :phone, "Phone \(optional\)" %>
     </div>
   </div>
 
@@ -42,7 +42,7 @@
   <br />
 
   <div class="submit_button waves-effect waves-light btn">
-    <%= c.submit "Submit" %>
+    <%= f.submit "Submit" %>
   </div>
 
 <% end %>
