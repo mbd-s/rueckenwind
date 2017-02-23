@@ -4,15 +4,14 @@ class EventsController < ApplicationController
   before_action :authorize
   before_action :set_event, only: [:edit, :show, :update, :destroy, :add_customer,
     :save_customer, :send_invitations]
+  before_action :set_orders, only: [:show, :edit]
+  before_action :set_volunteers, only: [:show, :edit]
 
   def index
     @events = Event.all
   end
 
   def show
-    @orders = Order.where(event_id: @event.id)
-    volunteer_ids = EventVolunteer.where(event_id: @event.id).map {|ev| ev.user_id}
-    @volunteers = User.where(id: volunteer_ids)
   end
 
   def new
@@ -119,4 +118,12 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
+  def set_orders
+    @orders = Order.where(event_id: @event.id)
+  end
+
+  def set_volunteers
+    volunteer_ids = EventVolunteer.where(event_id: @event.id).map {|ev| ev.user_id}
+    @volunteers = User.where(id: volunteer_ids)
+  end
 end
