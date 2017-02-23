@@ -104,7 +104,7 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:date, :start_time, :end_time, :organizer_id,
-      :volunteer_spaces, :order_spaces)
+      :volunteer_spaces, :order_spaces, :name)
   end
 
   def save_event_volunteers(event, volunteers)

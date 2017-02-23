@@ -1,6 +1,11 @@
 <div class="row">
   <%= form_for @event do |f| %>
     <div class="input-field col l3">
+      <i class="material-icons prefix">label_outline</i>
+      <%= f.text_field :name, autofocus: true %>
+      <%= f.label "Event name" %>
+    </div>
+    <div class="input-field col l3">
       <i class="material-icons prefix">today</i>
       <%= f.text_field :date, class: "datepicker" %>
       <%= f.label :date %>
