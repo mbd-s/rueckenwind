@@ -26,28 +26,35 @@ $link-color: #75b843 !default;
   margin-left: 17px;
   max-height: 70px;
 }
+
 nav {
   height: 70px;
   line-height: 70px;
   margin-bottom: 40px;
 }
+
 footer {
   margin-top: 40px;
 }
+
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
 }
+
 main {
   flex: 1 0 auto;
 }
+
 .card-text {
   font-size: 25px;
 }
+
 .notice {
   color: blue;
 }
+
 .error {
   color: red;
 }
