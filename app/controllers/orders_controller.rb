@@ -6,6 +6,10 @@ class OrdersController < ApplicationController
 
   def index
     @orders = Order.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @orders.to_csv, filename: "orders_#{Date.today.strftime('%d-%b-%Y')}.csv" }
+    end
   end
 
   def new

@@ -42,4 +42,18 @@ class Order < ActiveRecord::Base
     save
   end
 
+  def self.to_csv
+    attributes = %w{order_date name email phone total_bikes
+      mens_bikes womens_bikes kids_bikes status notes}
+    CSV.generate(headers: true) do |csv|
+      csv << attributes
+
+      all.each do |order|
+        csv << [order.created_at, order.customer, order.customer.email,
+          order.customer.phone, order.total_bikes, order.mens_bikes,
+          order.womens_bikes, order.kids_bikes, order.status, order.notes]
+      end
+    end
+  end
+
 end
