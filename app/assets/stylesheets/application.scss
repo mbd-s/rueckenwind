@@ -20,6 +20,10 @@ $secondary-color: #75b843 !default;
 $link-color: #75b843 !default;
 
 @import "materialize";
+// Rules for sizing the icon.
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
 
 .rueckenwind_logo {
   padding: 13px;
