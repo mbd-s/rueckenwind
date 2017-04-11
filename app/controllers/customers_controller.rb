@@ -12,8 +12,8 @@ class CustomersController < ApplicationController
     @customer = Customer.new(customer_params)
     if @customer.save
       CustomerMailer.email_confirmation(@customer).deliver
-      redirect_to confirmation_page_url("confirmation"), notice: "We've sent you
-        a confirmation email. Please click the link to complete your order."
+      redirect_to confirmation_page_url("confirmation")
+      flash[:notice] = 'Check your inbox to complete your order!'
     else
       flash[:error] = @customer.errors.full_messages.to_sentence
       redirect_to new_customer_path
