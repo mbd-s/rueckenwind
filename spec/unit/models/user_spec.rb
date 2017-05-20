@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe User do
@@ -7,7 +9,6 @@ describe User do
     expect(user).to be_valid
   end
 
-  it { should have_many :events}
+  it { should have_many :events }
   it { should have_many(:events).through(:event_volunteers) }
-
 end

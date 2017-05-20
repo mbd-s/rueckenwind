@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe Customer do
@@ -7,8 +9,8 @@ describe Customer do
     expect(customer).to be_valid
   end
 
-  it { should have_many :orders}
-  it { should have_many :events}
+  it { should have_many :orders }
+  it { should have_many :events }
   it { should have_many(:events).through(:orders) }
 
   it { should validate_presence_of(:first_name) }

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryGirl.define do
   factory :donation do
     pickup_location { Faker::Address.street_address }

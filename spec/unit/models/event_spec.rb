@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe Event do
@@ -57,10 +59,9 @@ describe Event do
       event = create :event, volunteer_spaces: 2
 
       create :user
-      create :event_volunteer, role: "volunteer", event_id: event.id, user_id: user.id
+      create :event_volunteer, role: 'volunteer', event_id: event.id, user_id: user.id
 
       expect(users.count < event.volunteer_spaces).to eq true
     end
   end
-
 end

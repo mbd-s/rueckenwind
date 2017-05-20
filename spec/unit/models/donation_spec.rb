@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe Donation do
@@ -9,5 +11,4 @@ describe Donation do
 
   it { should belong_to(:donor) }
   it { should validate_presence_of(:pickup_location) }
-
 end
