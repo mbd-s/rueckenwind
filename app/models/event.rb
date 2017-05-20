@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Event < ActiveRecord::Base
   INVITED = 1
   CONFIRMED = 2
@@ -16,12 +18,12 @@ class Event < ActiveRecord::Base
 
   def date_cannot_be_in_the_past
     errors.add(:date, "can't be in the past.") if
-      !date.blank? and date < Date.today
+      !date.blank? && date < Date.today
   end
 
   def end_time_must_be_after_start_time
-    errors.add(:end_time, "must be after start time.") if
-    !end_time.blank? and !start_time.blank? and end_time <= start_time
+    errors.add(:end_time, 'must be after start time.') if
+    !end_time.blank? && !start_time.blank? && end_time <= start_time
   end
 
   def organizer
@@ -37,7 +39,7 @@ class Event < ActiveRecord::Base
   end
 
   def volunteer_spaces_available
-    still_open_to_volunteers? ? "#{volunteer_spaces - users.count}" : 'Full'
+    still_open_to_volunteers? ? (volunteer_spaces - users.count).to_s : 'Full'
   end
 
   def invited_orders

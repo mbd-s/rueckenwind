@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CustomerMailer < ApplicationMailer
   default from: 'no-reply@rueckenwind.berlin'
 
@@ -24,10 +26,9 @@ class CustomerMailer < ApplicationMailer
     mail(to: @order.customer.email, subject: 'Invitation from Rückenwind')
   end
 
-private
+  private
 
   def logo
     attachments.inline['logo.png'] = File.read('app/assets/images/logo.png')
   end
-
 end

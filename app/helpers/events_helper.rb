@@ -1,13 +1,11 @@
+# frozen_string_literal: true
+
 module EventsHelper
   def checked(order_event_id)
-    unless order_event_id.nil?
-      "checked"
-    end
+    'checked' unless order_event_id.nil?
   end
 
   def disabled(event_id, order_event_id)
-    if order_event_id != event_id && !order_event_id.nil?
-      "disabled"
-    end
+    'disabled' if order_event_id != event_id && !order_event_id.nil?
   end
 end

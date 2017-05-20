@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ruby File.read('.ruby-version').strip
 source 'https://rubygems.org'
 
@@ -6,8 +8,8 @@ gem 'rails', '4.2.7'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
 gem 'materialize-sass'
+gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -39,16 +41,16 @@ gem 'rubocop', '~> 0.48.1', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
   gem 'awesome_print'
+  gem 'byebug'
   gem 'faker', '~> 1.6', '>= 1.6.3'
 end
 
 # group :test do
-  gem 'rspec-rails', '~> 3.5'
-  gem 'rspec-mocks', '3.5.0'
-  gem 'shoulda', '~> 3.5'
-  gem 'factory_girl_rails'
+gem 'factory_girl_rails'
+gem 'rspec-mocks', '3.5.0'
+gem 'rspec-rails', '~> 3.5'
+gem 'shoulda', '~> 3.5'
 # end
 
 group :development do
