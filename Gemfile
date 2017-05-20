@@ -1,4 +1,4 @@
-ruby '2.3.3'
+ruby File.read('.ruby-version').strip
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
