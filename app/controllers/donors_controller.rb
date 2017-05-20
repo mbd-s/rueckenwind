@@ -1,5 +1,6 @@
-class DonorsController < ApplicationController
+# frozen_string_literal: true
 
+class DonorsController < ApplicationController
   def index
     @donors = Donor.all
   end
@@ -24,5 +25,4 @@ class DonorsController < ApplicationController
   def donor_params
     params.require(:donor).permit(:first_name, :last_name, :email, :phone)
   end
-
 end

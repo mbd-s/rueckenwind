@@ -1,5 +1,6 @@
-class CustomersController < ApplicationController
+# frozen_string_literal: true
 
+class CustomersController < ApplicationController
   def index
     @customers = Customer.all
   end
@@ -12,7 +13,7 @@ class CustomersController < ApplicationController
     @customer = Customer.new(customer_params)
     if @customer.save
       CustomerMailer.email_confirmation(@customer).deliver
-      redirect_to confirmation_page_url("confirmation")
+      redirect_to confirmation_page_url('confirmation')
       flash[:notice] = 'Check your inbox to complete your order!'
     else
       flash[:error] = @customer.errors.full_messages.to_sentence
@@ -36,7 +37,6 @@ class CustomersController < ApplicationController
 
   def customer_params
     params.require(:customer).permit(:first_name, :last_name, :email, :phone,
-      :facebook, :has_donated, :signed_up, :wants_to_be_mechanic)
+                                     :facebook, :has_donated, :signed_up, :wants_to_be_mechanic)
   end
-
 end

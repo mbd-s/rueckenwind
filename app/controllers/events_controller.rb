@@ -1,18 +1,18 @@
-class EventsController < ApplicationController
+# frozen_string_literal: true
 
+class EventsController < ApplicationController
   before_action :authenticate_user!
   before_action :authorize
-  before_action :set_event, only: [:edit, :show, :update, :destroy, :add_customer,
-    :save_customer, :send_invitations]
-  before_action :set_orders, only: [:show, :edit]
-  before_action :set_volunteers, only: [:show, :edit]
+  before_action :set_event, only: %i[edit show update destroy add_customer
+                                     save_customer send_invitations]
+  before_action :set_orders, only: %i[show edit]
+  before_action :set_volunteers, only: %i[show edit]
 
   def index
     @events = Event.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @event = Event.new
@@ -25,19 +25,18 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     if @event.save
       save_event_volunteers(@event, params[:volunteer_ids])
-      redirect_to events_path, notice: "Event created."
+      redirect_to events_path, notice: 'Event created.'
     else
       flash[:error] = @event.errors.full_messages.to_sentence
       redirect_to new_event_path
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @event.update(event_params)
-      redirect_to events_path, notice: "Event updated."
+      redirect_to events_path, notice: 'Event updated.'
     else
       flash[:error] = @event.errors.full_messages.to_sentence
       render :edit
@@ -48,7 +47,7 @@ class EventsController < ApplicationController
     event_id = params[:id]
     Order.where(event_id: event_id).update_all(event_id: nil)
     @event.destroy
-    redirect_to events_path, notice: "Event deleted."
+    redirect_to events_path, notice: 'Event deleted.'
   end
 
   def add_customer
@@ -60,24 +59,22 @@ class EventsController < ApplicationController
     order_ids = params[:order_ids]
     Order.where(event_id: event_id).update_all(event_id: nil)
 
-    unless order_ids.nil?
-      order_ids.each do |order_id|
-        order = Order.find(order_id)
-        order.event_id = event_id
-        order.save
-      end
+    order_ids&.each do |order_id|
+      order = Order.find(order_id)
+      order.event_id = event_id
+      order.save
     end
 
-    redirect_to add_customer_event_path(@event), notice: "Event updated."
+    redirect_to add_customer_event_path(@event), notice: 'Event updated.'
   end
 
   def send_invitations
     orders = Order.where(status: 'ordered')
-      .where("declined_events @> '{?}'", @event.id)
-      .order("id ASC")
-      .limit(@event.order_spaces_available)
+                  .where("declined_events @> '{?}'", @event.id)
+                  .order('id ASC')
+                  .limit(@event.order_spaces_available)
 
-    if orders.size == 0
+    if orders.empty?
       redirect_to events_url, notice: 'There are no spaces left for this event.'
     else
       orders.each do |order|
@@ -103,14 +100,12 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:date, :start_time, :end_time, :organizer_id,
-      :volunteer_spaces, :order_spaces, :name)
+                                  :volunteer_spaces, :order_spaces, :name)
   end
 
   def save_event_volunteers(event, volunteers)
-    unless volunteers.nil?
-      volunteers.each do |v|
-        EventVolunteer.new(event_id: event.id, user_id: v).save
-      end
+    volunteers&.each do |v|
+      EventVolunteer.new(event_id: event.id, user_id: v).save
     end
   end
 
@@ -123,7 +118,7 @@ class EventsController < ApplicationController
   end
 
   def set_volunteers
-    volunteer_ids = EventVolunteer.where(event_id: @event.id).map {|ev| ev.user_id}
+    volunteer_ids = EventVolunteer.where(event_id: @event.id).map(&:user_id)
     @volunteers = User.where(id: volunteer_ids)
   end
 end
