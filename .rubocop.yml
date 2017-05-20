@@ -1,4 +1,6 @@
 AllCops:
   Exclude:
     - 'db/**/*'
-  TargetRubyVersion: 2.3.3
+
+Metrics/LineLength:
+  Max: 100
