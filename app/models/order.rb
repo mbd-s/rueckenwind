@@ -11,7 +11,7 @@ class Order < ActiveRecord::Base
   enum status: %i[ordered invited confirmed canceled completed inactive]
 
   def bikes_ordered_cannot_be_zero
-    if mens_bikes == 0 && womens_bikes == 0 && kids_bikes == 0
+    if mens_bikes.zero? && womens_bikes.zero? && kids_bikes.zero?
       errors[:base] << 'You need to add at least one bike to your order.'
     end
   end
