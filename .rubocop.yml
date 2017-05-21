@@ -1,7 +1,7 @@
 AllCops:
   Exclude:
     - 'db/**/*'
-    - 'config/**'
+    - 'config/**/*'
 
 Metrics/LineLength:
   Max: 100
