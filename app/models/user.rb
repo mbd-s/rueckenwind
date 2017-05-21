@@ -8,8 +8,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-  scope :admin_and_organizers, -> { where('role IN (?) AND confirmed_at IS NOT ?', %w[admin organizer], nil) }
-  scope :volunteers, -> { where('role = ? AND confirmed_at IS NOT ?', 'volunteer', nil) }
+  scope :admin_and_organizers,
+        -> { where('role IN (?) AND confirmed_at IS NOT ?', %w[admin organizer], nil) }
+  scope :volunteers,
+        -> { where('role = ? AND confirmed_at IS NOT ?', 'volunteer', nil) }
 
   enum experience: %i[basic intermediate pro]
 
