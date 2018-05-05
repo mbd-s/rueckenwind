@@ -10,8 +10,6 @@ class Donation < ActiveRecord::Base
   end
 
   def bikes_donated_cannot_be_zero
-    if bikes < 1
-      errors[:base] << 'You need to add at least one bike to your donation.'
-    end
+    errors[:base] << 'You need to add at least one bike to your donation.' if bikes < 1
   end
 end
